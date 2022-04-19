@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Kevin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="Part 1序 这篇markdown的目的在于，我自己认为操作系统其实是非常好理解的，并且体系非常分明的计算机相关学科，书上讲的也挺明白的，但是从我自身角度出发，还是想用一些自己的语言，通俗地说..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Story of OS |
+    
+    Kevin&#39;s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.4pvt8z0ci5y0.webp)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Kevin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        Kevin&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/CS基础/"><i class="fa "></i>
+                                CS基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/语言学习/"><i class="fa "></i>
+                                语言学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/杂谈/"><i class="fa "></i>
+                                杂谈</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Story of OS">
+            
+            Story of OS
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/CS%E5%9F%BA%E7%A1%80/">CS基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/04/19</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h1><h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p> 这篇markdown的目的在于，我自己认为操作系统其实是非常好理解的，并且体系非常分明的计算机相关学科，书上讲的也挺明白的，但是从我自身角度出发，还是想用一些自己的语言，通俗地说明整个操作系统的体系结构以及在硬件中相对应的东西，文中许多概念来源于<strong>汤小丹</strong>等老师所编著的**计算机操作系统(第4版)**，这里致以崇高的敬意。</p>
+<h2 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h2><p> 拿我们手上用到的最多的手机为例，手机在漫长的发展史中演化出了当前几大操作系统:</p>
+<ul>
+<li>Apple公司的IOS系统</li>
+<li>Google公司的Android系统</li>
+<li>Huawei公司的Harmony(鸿蒙)系统</li>
+</ul>
+<p>如果在生活中有留意这些不同品牌的手机的话，我们能很明显的注意到这些手机的<strong>UI</strong>(User Interface)界面，也就是提供给用户的功能界面有着很大的差别</p>
+<p><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.7cpk53m074o0.jpg" alt="image"></p>
+<p> 然而用户UI界面的不同只是很小的一部分，这与各大厂商的设计师有关**(我的想法，不是标准答案)<strong>,但是在UI界面的背后，各种运行机制的不同，才是这些操作系统真正的</strong>区别**所在，为此，我们需要清楚建立操作系统的目标</p>
+<h2 id="操作系统的目标"><a href="#操作系统的目标" class="headerlink" title="操作系统的目标"></a>操作系统的目标</h2><p> 以计算机为例，当前计算机操作系统**(Operating System)<strong>，市面上见到的最多的就是</strong>Windows,MacOS**,一个是微软推出的，另一个是Apple公司推出的，其实还有一个开源的操作系统，叫<strong>Linux</strong>，不过好像程序员用的更多一点。</p>
+<p> 在计算机系统上配置操作系统，其主要目标是<strong>方便性</strong>，<strong>有效性</strong>，<strong>可扩充性</strong>以及<strong>开放性</strong></p>
+<ul>
+<li><p><strong>方便性</strong></p>
+<p> 如果一台电脑没有配置OS操作系统，那是很难使用的，在裸机上运行自己编写的程序，就必须用<strong>机器语言</strong>编写程序，问题是机器语言没几个人会，所以操作系统就诞生了，操作系统可以使用<strong>编译命令</strong>将用户采用高级语言书写的程序翻译成机器代码，这样一来中间就少了很多不必要的步骤，我们上手的难度也大大降低，计算机也变得更易学易用。</p>
+</li>
+<li><p><strong>有效性</strong></p>
+<p> 早期计算机系统没有配置OS操作系统时，计算机的相关硬件比如<strong>处理机，IO设备</strong>等都经常处于空闲状态，资源就产生了不必要的浪费，所以OS发展的另一层动力则是<strong>提高系统资源利用率</strong>，且有效性的另一层含义是<strong>提高吞吐量</strong>，加速程序的运行，缩短程序的运行周期，从而提高吞吐量</p>
+<p> PS.<strong>吞吐量</strong>:指在单位时间内<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8">中央处理器</a>（CPU）从存储设备读取-&gt;处理-&gt;存储信息的量。</p>
+<p> PS.<strong>中央处理器</strong>:作为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/7210959">计算机系统</a>的运算和控制核心，是信息处理、程序运行的最终执行单元。</p>
+</li>
+<li><p><strong>可扩充性</strong></p>
+<p> 操作系统一直在发展，但是比如电脑的相关硬件如键盘、鼠标、音频设备以及摄像头等各种引荐和计算机应用也一直在发展，为此<strong>操作系统</strong>必须具有很好的可扩充性，功能可以随需求增加，并可以同时保证系统的<strong>安全性</strong>和<strong>可靠性</strong>，我想的话，就是比如有的U盘插到电脑上，有的可以读取，有的会提醒U盘内有病毒等各种情况</p>
+</li>
+<li><p><strong>开放性</strong></p>
+<p> 我们都知道计算机可以粗略的看为<strong>软件(SoftWare)**以及**硬件(HardWare)**两大部分，两者在当今都在飞快地发展，两者相伴相生，比如有的游戏，画面精美，但是需要更加牛逼性能更加强大的显卡，举个例子，比如我拿一张**750ti<strong>去玩</strong>赛博朋克2077</strong>，我觉得就算能进去，画质打死都不能调到极高。所以随着用计算机应用的日益普及，硬件和软件的兼容性问题变得不可忽视，所以世界各国制定了一系列的软硬件标准，使得不同厂家按照标准生产的软、硬件都能在本国范围内很好地相互兼容。并且随着**Internet(互联网)**的出现，计算机应用的环境由单机线下转为互联线上，应用环境变得更加开放，所以**开放性**是OS不可忽视的特性</p>
+</li>
+</ul>
+<p> 有了目标，当然就得去实现，而操作系统实现的这些作用，也是学习中的重点</p>
+<h2 id="操作系统的作用"><a href="#操作系统的作用" class="headerlink" title="操作系统的作用"></a>操作系统的作用</h2><p> 操作系统所起到的作用，可以从<strong>用户、资源管理和资源抽象</strong>等多个不同的角度讨论</p>
+<ol>
+<li><p><strong>OS作为用户与计算机硬件系统之间的接口</strong></p>
+<p>很好理解，如果对<strong>cmd命令行</strong>有了解，其实操作系统就是那个小黑框，但是我们有UI界面与操作系统进行沟通，充当着我们和硬件之间交流的桥梁，我们在<strong>OS</strong>帮助下能够方便、快捷、可靠地操纵计算机硬件，运行自己的程序</p>
+<p> CMD命令行</p>
+<p>用户可以通过三种方式使用计算机，即通过<strong>命令方式</strong>、<strong>系统调用方式</strong>、<strong>图标-窗口方式</strong>来实现与操作系统的通信并获得他的服务</p>
+<p><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/498E0456085EB74F1286E9B7FDEE66AE.6uffc7ifdrc0.jpg" alt="498E0456085EB74F1286E9B7FDEE66AE"></p>
+</li>
+</ol>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2022/04/19/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="pre-post btn btn-default" title='操作系统'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            操作系统</span>
+    </a>
+    
+    
+    <a href="/2022/04/19/Java%E7%89%B9%E6%80%A7%E5%AD%A6%E4%B9%A0/" class="next-post btn btn-default" title='Java'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            Java</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Part-1"><span class="toc-text">Part 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F"><span class="toc-text">序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">什么是操作系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-text">操作系统的目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">操作系统的作用</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

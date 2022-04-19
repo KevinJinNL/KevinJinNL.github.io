@@ -1,0 +1,408 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Kevin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="一、类和对象
+ java作为一门面向对象的程序设计语言，在java中所有的东西都会属于某个类（class），你会建立的是源文件（扩展名为.java），然后将它编译成新的文件（扩展名为.class..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Java |
+    
+    Kevin&#39;s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.4pvt8z0ci5y0.webp)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Kevin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        Kevin&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/CS基础/"><i class="fa "></i>
+                                CS基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/语言学习/"><i class="fa "></i>
+                                语言学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/杂谈/"><i class="fa "></i>
+                                杂谈</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Java">
+            
+            Java
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">语言学习</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/04/19</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="一、类和对象"><a href="#一、类和对象" class="headerlink" title="一、类和对象"></a>一、类和对象</h1><hr>
+<p> java作为一门面向对象的程序设计语言，在java中所有的东西都会属于某个类（class），你会建立的是源文件（扩展名为.java），然后将它编译成新的文件（扩展名为.class），实际上真正执行的是类class</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//一个狗的示例类</span><br><span class="line">class dog&#123;</span><br><span class="line">    int age;</span><br><span class="line">    String name;</span><br><span class="line">    //数据成员</span><br><span class="line">    public void eat()</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(&quot;小狗吃东西&quot;)；</span><br><span class="line">    &#125;</span><br><span class="line">    //抽象行为</span><br><span class="line">    public void Needfood(int food)</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.print(&quot;小狗要吃&quot;+food+&quot;克狗食&quot;)；</span><br><span class="line">    &#125;</span><br><span class="line">    //成员方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 在上面的小狗类示例中，可以发现一个类有几种基本元素</p>
+<ul>
+<li>数据成员(Data)</li>
+<li>抽象行为(Abstract Behavior)</li>
+<li>成员方法(Method)</li>
+</ul>
+<h2 id="对象的继承-Inheritance"><a href="#对象的继承-Inheritance" class="headerlink" title="对象的继承(Inheritance)"></a>对象的继承(Inheritance)</h2><p> 首先我们想象这么一个场景，两位programmer接到了相同的任务，要求在图形接口画出四方形，圆形与三角形，当用户点选图形时，图形需要顺时针转动360°并依据形状的不同播放不同音频文件，我们分别称呼两位programmer为一号和二号</p>
+<hr>
+<p>一号的设计思路是这样的，写出旋转以及播放音频函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">rotate(shapeNum)</span><br><span class="line">&#123;</span><br><span class="line">    //旋转360°</span><br><span class="line">&#125;//旋转函数</span><br><span class="line">playsound(shapeNum)</span><br><span class="line">&#123;</span><br><span class="line">    //播放对应音频文件</span><br><span class="line">&#125;//音频播放函数</span><br></pre></td></tr></table></figure>
+
+<p>而二号的设计思路是将需求的三个类都写出来并且每一个类都对其旋转和音频播放函数进行定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Square&#123;//正方形</span><br><span class="line">    rotate()&#123;</span><br><span class="line">        //旋转函数</span><br><span class="line">    &#125;</span><br><span class="line">    playsound()&#123;</span><br><span class="line">        //音频播放函数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Circle()&#123;//圆形</span><br><span class="line">    rotate()&#123;</span><br><span class="line">        //旋转函数</span><br><span class="line">    &#125;</span><br><span class="line">    playsound()&#123;</span><br><span class="line">        //音频播放函数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Triangle()&#123;//三角形</span><br><span class="line">	rotate()&#123;</span><br><span class="line">        //旋转函数</span><br><span class="line">    &#125;</span><br><span class="line">    playsound()&#123;</span><br><span class="line">        //音频播放函数</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 综上可以看出，一号的代码量要少很多，但是可读性以及后期针对不同需求的时候需要修改，比如我们增加一个阿米巴虫形状，一号的程序代码就需要针对阿米巴虫形状进行专门的修改,以至于后期如果增加更多的类和不同情况下的需求，需要在playsound函数中增加大量的分支语句，无论是读起来还是理解起来都非常吃力(如果还不是自己写的)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">playsound(shapeNum)&#123;</span><br><span class="line">	//如果不是阿米巴虫形状</span><br><span class="line">		//查询使用哪个音频文件</span><br><span class="line">		//播放</span><br><span class="line">	//不然</span><br><span class="line">		//播放阿米巴虫对应的音频文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 而二号在可读性以及后期的修改上就要轻松很多，但是代码量要多得多，而且真正修改起来还得寻找相应的对象，也是非常麻烦，只要有新的需求就需要重新写入一个类</p>
+<p> 由此在这种情况下我们就可以用到java中继承(inheritance)的特性，利用<strong>extends</strong>关键字，创建最顶层的类shape类,shape类具有包括正方形长方形三角形等几何图形所具有的共同特征以及特性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class shape&#123;</span><br><span class="line">    double area;//面积</span><br><span class="line">    String name;//图形名称</span><br><span class="line">    </span><br><span class="line">    void rotate()</span><br><span class="line">    &#123;</span><br><span class="line">        //图形旋转</span><br><span class="line">    &#125;</span><br><span class="line">    void playsound()</span><br><span class="line">    &#123;</span><br><span class="line">        //播放音频文件</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 上面我们定义了顶层的图形类shape，在定义其他图形时可以直接继承shape类的各种数据成员以及方法，例如直接让三角形继承shape类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Triangle extends shape&#123;</span><br><span class="line">    //此处我们可以直接对shape中已有的方法进行重写override</span><br><span class="line">    </span><br><span class="line">    void rotate()&#123;</span><br><span class="line">        //三角形旋转的具体实现</span><br><span class="line">    &#125;</span><br><span class="line">    void playsound()&#123;</span><br><span class="line">        //三角形旋转时播放的音频文件</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重载-Override"><a href="#重载-Override" class="headerlink" title="重载(Override)"></a>重载(Override)</h3><p> 如果想要继承的对象其中的某一个方法不按主类的具体方法实现，可以采取对方法进行重载的方式，只需要在子类中定义具体的实现方法即可</p>
+<h2 id="控制对象"><a href="#控制对象" class="headerlink" title="控制对象"></a>控制对象</h2><hr>
+<ul>
+<li><p>事实上并没有对象变量这样的东西存在</p>
+</li>
+<li><p>只有引用(reference)到对象的变量</p>
+</li>
+<li><p>对象引用变量保存的是存取对象的方法</p>
+<hr>
+<p>对象的声明、创建与赋值有3个步骤：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//以Dog类为例</span><br><span class="line">Dog mydog=new Dog();</span><br></pre></td></tr></table></figure>
+
+<p> 在其背后的具体实现细节分为三步：</p>
+<p>一、声明一个引用变量</p>
+<p> <strong>Dog myDog</strong>&#x3D;new Dog();</p>
+<p> 要求Java虚拟机分配空间给引用变量，并将此变量命名为myDog，此引用变量将永远被固定为Dog类型，换句话说，它是个控制Dog的遥控器</p>
+<p>二、创建对象</p>
+<p> Dog myDog&#x3D;<strong>new Dog()</strong>;</p>
+<p> 要求Java虚拟机分配堆空间给新建立的Dog对象</p>
+<p>三、连接对象和引用</p>
+<p> Dog myDog**&#x3D;**new Dog();</p>
+<p> 将新的Dog赋值给myDog这个引用变量</p>
+<h2 id="对象中的变量"><a href="#对象中的变量" class="headerlink" title="对象中的变量"></a>对象中的变量</h2><hr>
+<p> 在Java对象中，有实例变量和局部变量两种变量，实例变量时声明在类中，而局部变量是声明在方法中的</p>
+<p>实例变量声明在类中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Horse&#123;</span><br><span class="line">    private double height=15.2;</span><br><span class="line">    private String breed;</span><br><span class="line">   	//more code......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>局部变量声明在方法中且局部变量没有默认值，如果在变量被初始前就被使用的话，编译器就会显示错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Foo&#123;</span><br><span class="line">    public void go()</span><br><span class="line">    &#123;</span><br><span class="line">        int x;</span><br><span class="line">        int z=x+3;//无法编译，x并未初始化</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象的比较"><a href="#对象的比较" class="headerlink" title="对象的比较"></a>对象的比较</h2><hr>
+<p> 在Java中，运算符“&#x3D;&#x3D;”可以用于比较两个引用是否指向同一对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Foo a=new Foo();</span><br><span class="line">Foo b=new Foo();</span><br><span class="line">Foo c=a;</span><br><span class="line">a==b;//false</span><br><span class="line">a==c;//true</span><br><span class="line">b==c;//false</span><br></pre></td></tr></table></figure>
+
+<h2 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h2><hr>
+<p> this关键字出现在类的构造方法中时，代表使用该构造方法所创建的对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class People&#123;</span><br><span class="line">	int leg,hand;</span><br><span class="line">	String name;</span><br><span class="line">	People(String s)&#123;</span><br><span class="line">		name=s;</span><br><span class="line">        this.init();</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">    void init()&#123;</span><br><span class="line">        leg=2;</span><br><span class="line">        hand=2;</span><br><span class="line">        System.out.println(name+&quot;有&quot;+hand+&quot;只手&quot;+leg+&quot;条腿&quot;)；</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        People boshi=new People(&quot;布什&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h2><hr>
+<p> 一个类声明的两个对象如果具有相同的引用，那么二者就具有完全相同的实体，而且Java有所谓的“垃圾收集”机制，这种机制周期地检测某个实体是否已不再被任何对象所拥有(引用),如果发现这样的实体，就释放实体占有的内存</p>
+<h2 id="类与程序的基本结构"><a href="#类与程序的基本结构" class="headerlink" title="类与程序的基本结构"></a>类与程序的基本结构</h2><hr>
+<p> 一个Java应用程序(Project)由若干个类构成，这些类可以在一个源文件中，也可以分布在若干个源文件中。</p>
+<p> Java应用程序有一个主类，即含有main方法的类，Java应用程序从主类的main方法开始执行。在编写一个Java应用程序时，可以编写若干个Java源文件，每个源文件编译后产生若干个类的字节码文件</p>
+<h2 id="实例方法和类方法的区别"><a href="#实例方法和类方法的区别" class="headerlink" title="实例方法和类方法的区别"></a>实例方法和类方法的区别</h2><hr>
+<p>1.对象调用实例方法</p>
+<p> 实例方法中不仅可以操作实例变量，也可以操作类变量。当对象调用实例方法时，该方法中出现的实例变量就是分配给该对象的实例变量，该方法中出现的类变量也是分配给该对象的变量，只不过这个变量和所有的其他对象共享而已</p>
+<p>2.类名调用类方法</p>
+<p> 与实例方法不同，类方法不可以操作实例变量，这是因为在类创建对象之前，实例成员变量还没有分配内存</p>
+<p>3.设计类方法的原则</p>
+<p> 对于static方法，不必创建对象就可以用类名直接调用它，如果一个方法不需要操作类中的任何实例变量，就可以满足程序的需要，考虑将这样的方法设计为一个static方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//Array类示例</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">    Scanner sc=new Scanner(System.in);</span><br><span class="line">    int []a=&#123;12,34,9,23,45,6,45,90,123,19,34&#125;;</span><br><span class="line">    Arrays.sort(a);</span><br><span class="line">    System.out.println(Arrays.toString(a));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、继承与多态"><a href="#二、继承与多态" class="headerlink" title="二、继承与多态"></a>二、继承与多态</h1><hr>
+<ol>
+<li>规划程序时要考虑未来</li>
+<li>用继承来防止子类中出现重复的代码</li>
+<li>寻找更多抽象化的机会</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Doctor&#123;</span><br><span class="line">    boolean worksAtHospital;</span><br><span class="line">    </span><br><span class="line">    void treatPatient()&#123;</span><br><span class="line">        //执行检查</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class FamilyDoctor extends Doctor&#123;</span><br><span class="line">    boolean makesHouseCalls;</span><br><span class="line">    void giveAdvice()&#123;</span><br><span class="line">        //提出诊断</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Surgeon extends Doctor&#123;</span><br><span class="line">    void treatPatient()&#123;</span><br><span class="line">        //进行手术</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void makeIncision()&#123;</span><br><span class="line">        //截肢</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="instanceof运算符"><a href="#instanceof运算符" class="headerlink" title="instanceof运算符"></a>instanceof运算符</h2><hr>
+<p> instanceof是Java独有的双目运算符，其左面的操作元是对象，右面的操作元是类，当左面的操作元是右面的类或其子类所创建的对象时，instanceof运算的结果是true，否则是false</p>
+<h2 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h2><hr>
+<p>重写的语法规则</p>
+<p> 如果子类可以继承父类的某个方法，那么子类就有权利重写这个方法。所谓方法重写，是指子类中定义一个方法，这个方法的类型和父类的方法的类型一致</p>
+<p>重写的目的</p>
+<p> 重写方法既可以操作继承的成员变量、调用继承的方法，也可以操作子类新声明的成员变量、调用新定义的其他方法，但无法操作被子类隐藏的成员变量和方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class A&#123;</span><br><span class="line">    float computer(float x,float y)&#123;</span><br><span class="line">        return x+y;</span><br><span class="line">    &#125;</span><br><span class="line">    public int g(int x,int y)&#123;</span><br><span class="line">        return x+y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B extends A&#123;</span><br><span class="line">    float computer(float x,float y)&#123;</span><br><span class="line">        return x*y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">    B b=new B();</span><br><span class="line">    double result=b.computer(8,9);//b调用重写的方法</span><br><span class="line">    System.out.println(result);</span><br><span class="line">    int m=b.g(12,8);//b调用继承的方法</span><br><span class="line">    System.out.println(m);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上例中，如果子类如下定义computer方法，将产生编译错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">double computer(float x,float y)&#123;</span><br><span class="line">	return x*y;</span><br><span class="line">&#125;</span><br><span class="line">//因为父类的computer方法类型是float，子类的computer方法类型没有和父类的computer方法保持一致</span><br><span class="line"></span><br><span class="line">//重写的注意事项</span><br><span class="line">//重写父类的方法时，不允许降低方法的访问权限，但可以提高访问权限(public,protected,friendly,private)</span><br></pre></td></tr></table></figure>
+
+<h2 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h2><hr>
+<p> 用super操作被隐藏的成员变量和方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Sum&#123;</span><br><span class="line">    int n;</span><br><span class="line">    float f()&#123;</span><br><span class="line">        float sum=0;</span><br><span class="line">        for(int i=1;i&lt;=n;i++)</span><br><span class="line">            sum=sum+i;</span><br><span class="line">        return sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Average extends Sum&#123;</span><br><span class="line">    int n;</span><br><span class="line">    float f()&#123;</span><br><span class="line">        float c;</span><br><span class="line">        super.n=n;</span><br><span class="line">        c=super.f();</span><br><span class="line">        return c/n;</span><br><span class="line">    &#125;</span><br><span class="line">    float g()&#123;</span><br><span class="line">        float c;</span><br><span class="line">        c=super.f();</span><br><span class="line">        return c/2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 有人认为super和this引用是类似的概念，实际上这样比较并不恰当因为super不是一个对象的引用，它只是一个指示编译器调用超类方法的关键字</p>
+<p> 子类中可以增加域、增加方法或覆盖超类的方法，然而绝对不能删除继承类的任何域和方法</p>
+<h2 id="阻止继承-final类和方法"><a href="#阻止继承-final类和方法" class="headerlink" title="阻止继承:final类和方法"></a>阻止继承:final类和方法</h2><p> 有时候，可能希望组织人们利用某个类定义子类。不允许扩展的类被称为final类。如果在定义类的时候使用了final修饰符就表明这个类是final类。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public final class Executive extends Manager</span><br><span class="line">&#123;</span><br><span class="line">    ....//无法定义Executive 的子类</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Employee</span><br><span class="line">&#123;</span><br><span class="line">	//类中的特定方法可以被声明为final，这样子类就不能覆盖这个方法</span><br><span class="line">    public final String getName()</span><br><span class="line">    &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、接口-Interface"><a href="#三、接口-Interface" class="headerlink" title="三、接口(Interface)"></a>三、接口(Interface)</h1><hr>
+<h1 id="四、集合"><a href="#四、集合" class="headerlink" title="四、集合"></a>四、集合</h1><hr>
+<p><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/95E5970199A464DDC0D26DF54031951A.2wl267rdkgc.jpg" alt="95E5970199A464DDC0D26DF54031951A"></p>
+<h2 id="Collection超类"><a href="#Collection超类" class="headerlink" title="Collection超类"></a>Collection超类</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;E&gt; iterator()//返回一个用于访问集合中元素的迭代器</span><br><span class="line"></span><br><span class="line">int size()//返回当前集合中元素个数</span><br><span class="line"></span><br><span class="line">boolean isEmpty()//集合中没有元素，则返回true</span><br><span class="line"></span><br><span class="line">boolean contains(Obeject obj)//如果集合中包含了一个与obj相等的对象，返回true</span><br><span class="line"></span><br><span class="line">boolean containsALL(Collection&lt;?&gt; other)//如果这个集合包括other集合中的所有元素，返回true</span><br><span class="line"></span><br><span class="line">boolean add(Object element)//将一个元素添加到集合中。如果由于这个调用改变了集合，返回true</span><br><span class="line"></span><br><span class="line">boolean addAll(Collection&lt;? extends E&gt; other)//将other集合中所有元素添加到这个集合</span><br><span class="line"></span><br><span class="line">boolean remove(Object obj)//从这个集合中删除等于obj的对象</span><br><span class="line"></span><br><span class="line">boolean removeAll(Collection&lt;?&gt; other)//删除other集合中的所有元素</span><br><span class="line"></span><br><span class="line">void clear()//从这个集合中删除所有的元素</span><br><span class="line"></span><br><span class="line">boolean retainALL(Collection&lt;?&gt; other)//从这个集合删除所有与other集合中的元素不同的元素</span><br><span class="line"></span><br><span class="line">Object[] toArray()//返回这个集合的对象数组</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、常用类"><a href="#五、常用类" class="headerlink" title="五、常用类"></a>五、常用类</h1><hr>
+<h2 id="String类"><a href="#String类" class="headerlink" title="String类"></a>String类</h2><p> 在Java中，<strong>String类</strong>具有不可扩展，不可继承的特性，因为在Java中String类被定义为final类</p>
+<p><strong>常量池</strong></p>
+<p> 在Java中，常量池是一个非常重要的概念，因为String常量是对象，所以也有自己的<strong>引用</strong>和<strong>实体</strong>，他们都存放在常量池中</p>
+<p> 可以这样理解常量池:<strong>常量池中的数据在程序运行期间再也不允许改变,而凡是通过new构造出的对象都不在常量池中</strong></p>
+<p><strong>声明对象</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s=new String(&quot;we are students&quot;);</span><br><span class="line">String t=new String(&quot;we are students&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以通过使用字符数组的方式声明String类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">char a[]=&#123;&#x27;J&#x27;,&#x27;a&#x27;,&#x27;v&#x27;,&#x27;a&#x27;&#125;;</span><br><span class="line">String s=new String(a);</span><br><span class="line">//or</span><br><span class="line">String s=new String(a,0,2);</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2022/04/19/StoryOfOS/" class="pre-post btn btn-default" title='Story of OS'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            Story of OS</span>
+    </a>
+    
+    
+    <a href="/2022/04/19/c++%E7%89%B9%E6%80%A7%E5%AD%A6%E4%B9%A0/" class="next-post btn btn-default" title='C++'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            C++</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">一、类和对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%A7%E6%89%BF-Inheritance"><span class="toc-text">对象的继承(Inheritance)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%BD%BD-Override"><span class="toc-text">重载(Override)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%AF%B9%E8%B1%A1"><span class="toc-text">控制对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F"><span class="toc-text">对象中的变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">对象的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">this关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86"><span class="toc-text">垃圾收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">类与程序的基本结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95%E5%92%8C%E7%B1%BB%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">实例方法和类方法的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BB%A7%E6%89%BF%E4%B8%8E%E5%A4%9A%E6%80%81"><span class="toc-text">二、继承与多态</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#instanceof%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">instanceof运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99"><span class="toc-text">方法重写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#super%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">super关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BB%E6%AD%A2%E7%BB%A7%E6%89%BF-final%E7%B1%BB%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">阻止继承:final类和方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%8E%A5%E5%8F%A3-Interface"><span class="toc-text">三、接口(Interface)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E9%9B%86%E5%90%88"><span class="toc-text">四、集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection%E8%B6%85%E7%B1%BB"><span class="toc-text">Collection超类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B8%B8%E7%94%A8%E7%B1%BB"><span class="toc-text">五、常用类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#String%E7%B1%BB"><span class="toc-text">String类</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
