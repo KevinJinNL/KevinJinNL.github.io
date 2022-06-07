@@ -1,0 +1,467 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Kevin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="论文是三个人一起合力完成，可以概括为writer、builder和coder，对于论文的各个板块的分工给出我的个人理解
+首页论文标题
+标题简短精炼、高度概括、准确得体，一般不超过20个字
+基于所..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    数学建模论文书写 |
+    
+    Kevin&#39;s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.4pvt8z0ci5y0.webp)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Kevin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        Kevin&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/CS基础/"><i class="fa "></i>
+                                CS基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/语言学习/"><i class="fa "></i>
+                                语言学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/杂谈/"><i class="fa "></i>
+                                杂谈</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="数学建模论文书写">
+            
+            数学建模论文书写
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/06/07</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>论文是三个人一起合力完成，可以概括为writer、builder和coder，对于论文的各个板块的分工给出我的个人理解</p>
+<h1 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h1><h2 id="论文标题"><a href="#论文标题" class="headerlink" title="论文标题"></a>论文标题</h2><ul>
+<li>标题简短精炼、高度概括、准确得体，一般不超过20个字</li>
+<li>基于所使用的主要模型或者方法作为标题(推荐)</li>
+<li>直接使用赛题所给的题目或者要研究的问题作为标题</li>
+</ul>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>不超过一页，文字简练，使读者或评委在不阅读论文全文的情况下就能获得必要的信息</li>
+<li>三要素：1.解决了什么问题 2.应用了什么方法 3.得到了什么结果</li>
+<li><strong>摘要是数模论文写作中最重要的一部分</strong></li>
+</ul>
+<h3 id="开头段"><a href="#开头段" class="headerlink" title="开头段"></a>开头段</h3><p>需要充分概括论文内容，一般两到三句话即可，</p>
+<p>长度控制在三至五行。</p>
+<p>第一句话可以简单交代下题目的背景（可选）；</p>
+<p>第二句话交代你们所做的事情（必须）；</p>
+<p>第三句话可以说下解决这个问题的实际意义（少部分有）。</p>
+<p>（重要性：第二句话 &gt; 第一句话 &gt; 第三句话）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">例1（19b）：</span><br><span class="line">“同心鼓”游戏是一项团队协作能力拓展项目，队员通过</span><br><span class="line">拉绳使鼓抬高，达到使球在鼓面上跳动的目的。本文通过</span><br><span class="line">建立三维物理模型，利用数学物理方法，分析了“同心鼓”游</span><br><span class="line">戏中的物理过程。该问题的研究能为游戏参与者提供指导</span><br><span class="line">性意见，帮助参与者取得更好成绩。</span><br></pre></td></tr></table></figure>
+
+<h3 id="中间段"><a href="#中间段" class="headerlink" title="中间段"></a>中间段</h3><p>​	需要对每个问题分别进行叙述，一般需要包含下面<strong>三要素</strong>：</p>
+<p>1.<strong>解决了什么问题</strong></p>
+<p>​	有<strong>三种方式</strong>提出：</p>
+<ul>
+<li><p>直接用一句话概括题目要我们求解的问题。（较少见到）</p>
+</li>
+<li><p>不单独提出我们要解决的是什么问题，因为在后面的两个要素中也会提到。（最常见到）</p>
+</li>
+<li><p>可以指出题目中问我们的是什么类型的问题，例如常见的有：预测类、评价类、规划优化类。（极少见到）</p>
+</li>
+</ul>
+<p>2.<strong>应用了什么方法</strong></p>
+<p>​	写出对于这个问题的求解思路，并说明你应用的模型，写作时<strong>紧扣题目本身</strong></p>
+<p>3.<strong>得到了什么结果</strong></p>
+<p>​	介绍完时使用建模方法后，一定要加上通过这个方法或者模型得到的结果，一般有以下两种情况</p>
+<ol>
+<li><p><strong>需要计算出数值答案，例如物理题、规划优化类、预测类</strong></p>
+<p>直接回答该答案即可，如果涉及概率统计，可以考虑加上置信区间；如果是预测类或数值计算类，可以考虑加上误差分析</p>
+</li>
+<li><p><strong>开放的问题例如评价类、提建议类、设计方案策略类</strong></p>
+</li>
+</ol>
+<p>​		摘要中只需要写出主要结论，一定要有明确支持的观点</p>
+<h3 id="结尾段-可选写"><a href="#结尾段-可选写" class="headerlink" title="结尾段(可选写)"></a>结尾段(可选写)</h3><p>​	可以总结下全文，也可以介绍你的论文的两点，也可以对类似的问题进行适当的推广</p>
+<h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p>​	可以放论文中的主要模型，也可以放论文里面出现次数较多，能体现论文的主要内容的词</p>
+<h1 id="一、问题重述"><a href="#一、问题重述" class="headerlink" title="一、问题重述"></a>一、问题重述</h1><p>​	将原问题进行整理，将问题背景和题目分开陈述即可</p>
+<p>​	<strong>目的</strong>是吸引读者读下去，措辞要精炼，文字不可冗长。</p>
+<p>​	绝对不可照抄原题！</p>
+<p><strong>在仔细理解了问题的基础上，用自己的语言重新将问题描述一遍。语言需要简明扼要，没有必要像原题一样面面俱到</strong></p>
+<h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>​	将题目的内容进一步的精简，保留最基础最直观的原貌</p>
+<h2 id="问题要求"><a href="#问题要求" class="headerlink" title="问题要求"></a>问题要求</h2><p>​	同样是依照题目精简</p>
+<h1 id="二、问题分析"><a href="#二、问题分析" class="headerlink" title="二、问题分析"></a>二、问题分析</h1><p>​	起着<strong>承上启下</strong>的作用，内容包括：</p>
+<ul>
+<li><strong>题目中包含的信息和条件</strong></li>
+<li><strong>利用信息和条件对题目做整体分析</strong></li>
+<li><strong>确定用什么方法建立模型</strong></li>
+<li><strong>分析过程简明扼要，不需要放结论</strong></li>
+<li><strong>文字说明的同时用图形或图标列出思维过程</strong></li>
+</ul>
+<h2 id="放置位置"><a href="#放置位置" class="headerlink" title="放置位置"></a>放置位置</h2><ul>
+<li>放在问题重述后作为单独的一节(出现频率最高)</li>
+<li>放在模型假设和符号后面作为单独一节</li>
+<li>也可以针对每个问题将其写在模型建立中</li>
+</ul>
+<h1 id="三、模型假设"><a href="#三、模型假设" class="headerlink" title="三、模型假设"></a>三、模型假设</h1><h2 id="常见情况"><a href="#常见情况" class="headerlink" title="常见情况"></a>常见情况</h2><ol>
+<li><p><strong>题目明确给出的假设条件</strong></p>
+<p>将题目给出的假设照搬即可</p>
+</li>
+<li><p><strong>排除生活中的小概率事件</strong></p>
+<p>例如：和交通运输相关的问题，我们可以假设不存在地质灾难、交通事故等；</p>
+</li>
+<li><p><strong>仅考虑问题中的核心因素，不考虑次要因素的影响</strong></p>
+<p>(过于简化的模型会使得你的论文没有优势和亮点)</p>
+<p>考虑传染病的传播规律时，可忽略性别、年龄等因素的影响；</p>
+</li>
+<li><p><strong>使用的模型中要求的假设</strong></p>
+<p>例如：</p>
+<p>  使用博弈论模型时可以假设参与博弈者都是“理性人”；</p>
+<p>  使用Markov模型时可以假设系统或状态具有无后效性；</p>
+<p>  使用回归模型时可以假设扰动项服从独立的正态分布；</p>
+</li>
+<li><p><strong>对模型中的参数形式(或者分布)进行假设</strong></p>
+<p>(如果能在论文中用数据验证这些假设更好)</p>
+<p>假设人口增长服从阻滞增长模型(Logistic模型)； </p>
+<p>假设不考虑环境变动时，某鱼群的自然死亡率为常数；</p>
+<p>假设产品的寿命(或旅客进机场的时间间隔)服从指数分布；</p>
+<p>假设单位时间内排队的人数(或机器出现的故障数)服从泊松分布；</p>
+<p>假设生产出来的产品某参数(例如重量、大小)服从ܰ(ߤ, ߪଶ )，且各产品独立。</p>
+</li>
+<li><p><strong>和题目联系很紧密的一些假设，主要是为了简化模型</strong></p>
+<p>这类假设与题目以及建立的模型结合的很紧密，需要我们深入挖掘</p>
+</li>
+</ol>
+<h1 id="四、符号说明"><a href="#四、符号说明" class="headerlink" title="四、符号说明"></a>四、符号说明</h1><p>​	本部分时对模型中使用的重要变量进行说明，一般排版时要放到一张表格中</p>
+<p>注意：</p>
+<ol>
+<li>不需要把所有变量都放到这个表里面，模型中用到的临时变量可以不放</li>
+<li>文章中首次出现这些变量时也要进行解释，不然会降低文章可读性</li>
+<li>一般采用“<strong>三线表</strong>”的形式，即“<strong>符号</strong>”、“<strong>定义</strong>”以及“<strong>单位</strong>”</li>
+</ol>
+<h1 id="模型准备-不常见"><a href="#模型准备-不常见" class="headerlink" title="模型准备(不常见)"></a>模型准备(不常见)</h1><p>​	本部分可以介绍你论文中要用到的模型理论或者背景知识</p>
+<p>​	很少见到有单独把这个内容抽出来作为单独一个部分的优秀论文，因为这部分的内容可以放在模型建立里面</p>
+<h1 id="五、模型的建立与求解"><a href="#五、模型的建立与求解" class="headerlink" title="五、模型的建立与求解"></a>五、模型的建立与求解</h1><p>​	<strong>模型建立</strong>：将原问题抽象成用数学语言的表达式，大多数时候我们都是使用别人已经建立好的模型</p>
+<p>​	<strong>模型求解</strong>：把实际问题归结为一定的数学模型后，就要利用数学模型求解所提出的实际问题了，<strong>一般需要借助计算机软件进行求解，比如Matlab、Spss、Lingo、Excel、Stata、Python等等</strong>；求解结果应该龟蛋准确并且醒目，若求解结果过长，最好编入附录里</p>
+<h2 id="物理类问题中模型的建立"><a href="#物理类问题中模型的建立" class="headerlink" title="物理类问题中模型的建立"></a>物理类问题中模型的建立</h2><p>​                  														<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.4k99slf3s160.webp" alt="image" style="zoom: 33%;" /></p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.4fjbmuvrzam0.webp" alt="image" style="zoom:50%;" />
+
+
+
+<h2 id="优化类问题中模型的建立"><a href="#优化类问题中模型的建立" class="headerlink" title="优化类问题中模型的建立"></a>优化类问题中模型的建立</h2><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.3opopyucc0s0.webp" alt="image" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.o01d5ljpleo.webp" alt="image" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.hsmfjhy5xw8.webp" alt="image" style="zoom:50%;" />
+
+<h2 id="使用别人已经建立好的模型"><a href="#使用别人已经建立好的模型" class="headerlink" title="使用别人已经建立好的模型"></a>使用别人已经建立好的模型</h2><img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220607170027506.png" alt="image-20220607170027506" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.wccpo614gao.webp" alt="image" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.645kwvaz4m00.webp" alt="image" style="zoom:50%;" />
+
+<h2 id="模型建立的要求"><a href="#模型建立的要求" class="headerlink" title="模型建立的要求"></a>模型建立的要求</h2><ol>
+<li>必须要有数学模型：即数学公式组成的一套数学结构、或者是一套数学的解决方案等</li>
+<li>模型要求表达完整、正确和简明</li>
+<li>模型要有实用性，要能求解出来，以能够解决问题为原则</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>如果用到了启发式算法求解的话，一定要简要写明算法步骤，并要结合具体的问题来阐明计算的思路<ul>
+<li>算法简介</li>
+<li>初始可行解</li>
+<li>新解的产生</li>
+<li>关键函数及参数的确定</li>
+<li>求解结果及分析</li>
+</ul>
+</li>
+<li>求解的结果应该在论文中突出的展示出来，有具体答案的问题直接放上数值计算结果即可；如果是开放类问题的话，一定要对结果进行阐明和解释，如果能加上美观整洁的图表就更好了</li>
+</ol>
+<h1 id="六、模型的分析与检验"><a href="#六、模型的分析与检验" class="headerlink" title="六、模型的分析与检验"></a>六、模型的分析与检验</h1><h2 id="模型的分析"><a href="#模型的分析" class="headerlink" title="模型的分析"></a>模型的分析</h2><p>​	建模比赛中模型分析主要有两种：</p>
+<ol>
+<li><p><strong>灵敏度分析</strong></p>
+<p>​	研究与分析一个系统(或模型)的状态或输出变化对系统参数或周围条件变化的敏感程度的方法。通用步骤为：</p>
+<p>控制其他参数不变的情况下，改变模型中某个重要参数的值，然后观察模型的结果的变化情况</p>
+</li>
+<li><p><strong>误差分析</strong></p>
+<p>​	分析模型中的误差来源，或者估算模型中存在的误差，一般用于预测问题或者数值计算类问题</p>
+</li>
+</ol>
+<h2 id="模型的检验"><a href="#模型的检验" class="headerlink" title="模型的检验"></a>模型的检验</h2><p>​	模型检验可分为两种：</p>
+<ol>
+<li>使用模型之前进行的检验</li>
+<li>使用了模型后对模型的结果进行的检验</li>
+</ol>
+<h1 id="七、模型的评价、改进和推广"><a href="#七、模型的评价、改进和推广" class="headerlink" title="七、模型的评价、改进和推广"></a>七、模型的评价、改进和推广</h1><p>​	本部分的标题需要根据你的内容进行调整，例如：如果你没有写模型推广的话，就直接把标题写成模型的评价与改进。很多论文也把部分的内容直接统称为“模型评价”部分。</p>
+<p>​	主要包括三个部分：</p>
+<ol>
+<li><p><strong>模型的评价</strong></p>
+<p>主要写模型的优缺点</p>
+</li>
+<li><p><strong>模型的改进</strong></p>
+<p>主要是针对模型中缺点有哪些可以改进的地方</p>
+</li>
+<li><p><strong>模型的推广</strong></p>
+<p>将原题的要求进行扩展，进一步讨论模型的实用性和可行性</p>
+</li>
+</ol>
+<p><strong>其中，优缺点是必须要写的内容，改进与推广建议写，这部分对于整个论文的作用在于画龙点睛</strong></p>
+<h1 id="八、参考文献"><a href="#八、参考文献" class="headerlink" title="八、参考文献"></a>八、参考文献</h1><p>​	所有引用他人或公开资料(包括网上资料)的成功必须按照科技论文的规范列出参考文献，并在正文引用处予以标注</p>
+<p>​	作用有三：</p>
+<ol>
+<li>反映出真是的科学依据</li>
+<li>体现严肃的科学态度，分清是自己的观点或成果还是别人的观点或成果</li>
+<li>对前人的科学成果表示尊重，同时也知名引用资料的处处，便于检索</li>
+</ol>
+<h2 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>引用内容需要在正文中标识出来</li>
+<li>不要引用别人的博客</li>
+<li>不能引用前辈论文里面的内容！</li>
+</ul>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>​	附录内容应该包括<strong>支撑材料的文件列表</strong></p>
+<ol>
+<li>建模所用的全部完整、可运行的源程序代码(含EXCEL、SPSS等软件的交互命令)</li>
+<li>自主查阅使用的数据资料(赛题中提供的原始数据除外)</li>
+<li>较大篇幅中间结果的图表等</li>
+<li>所有文件中不能有显示参赛者身份和所在学校及赛区的信息</li>
+<li>某一问题的详细证明或求解过程</li>
+<li>自己在网上找到的数据</li>
+<li>比较大的流程图</li>
+<li>较繁杂的图标或计算结果</li>
+</ol>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2022/05/19/ReAlgorithm/" class="next-post btn btn-default" title='ReAlgorithm'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            ReAlgorithm</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A6%96%E9%A1%B5"><span class="toc-text">首页</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E6%A0%87%E9%A2%98"><span class="toc-text">论文标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-text">摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%A4%B4%E6%AE%B5"><span class="toc-text">开头段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E6%AE%B5"><span class="toc-text">中间段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%B0%BE%E6%AE%B5-%E5%8F%AF%E9%80%89%E5%86%99"><span class="toc-text">结尾段(可选写)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-text">关键词</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E9%87%8D%E8%BF%B0"><span class="toc-text">一、问题重述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF"><span class="toc-text">问题背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A6%81%E6%B1%82"><span class="toc-text">问题要求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-text">二、问题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E4%BD%8D%E7%BD%AE"><span class="toc-text">放置位置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE"><span class="toc-text">三、模型假设</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%83%85%E5%86%B5"><span class="toc-text">常见情况</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-text">四、符号说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%87%86%E5%A4%87-%E4%B8%8D%E5%B8%B8%E8%A7%81"><span class="toc-text">模型准备(不常见)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BB%BA%E7%AB%8B%E4%B8%8E%E6%B1%82%E8%A7%A3"><span class="toc-text">五、模型的建立与求解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E7%B1%BB%E9%97%AE%E9%A2%98%E4%B8%AD%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-text">物理类问题中模型的建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E7%B1%BB%E9%97%AE%E9%A2%98%E4%B8%AD%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="toc-text">优化类问题中模型的建立</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%AB%E4%BA%BA%E5%B7%B2%E7%BB%8F%E5%BB%BA%E7%AB%8B%E5%A5%BD%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-text">使用别人已经建立好的模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-text">模型建立的要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E6%9E%90%E4%B8%8E%E6%A3%80%E9%AA%8C"><span class="toc-text">六、模型的分析与检验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">模型的分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%A3%80%E9%AA%8C"><span class="toc-text">模型的检验</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BB%B7%E3%80%81%E6%94%B9%E8%BF%9B%E5%92%8C%E6%8E%A8%E5%B9%BF"><span class="toc-text">七、模型的评价、改进和推广</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">八、参考文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-1"><span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-text">附录</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Kevin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="Section 1数据类型​	在MATLAB中有15种基本的数据类型
+
+
+
+数据类型
+说明
+
+
+
+int8,int16,int32.int64
+有符号整型
+
+
+uint8,uint16,uint..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    MATLAB |
+    
+    Kevin&#39;s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.4pvt8z0ci5y0.webp)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Kevin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        Kevin&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/CS基础/"><i class="fa "></i>
+                                CS基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/语言学习/"><i class="fa "></i>
+                                语言学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/杂谈/"><i class="fa "></i>
+                                杂谈</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="MATLAB">
+            
+            MATLAB
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">数学建模</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/05/07</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Section-1"><a href="#Section-1" class="headerlink" title="Section 1"></a>Section 1</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>​	在MATLAB中有15种基本的数据类型</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int8,int16,int32.int64</td>
+<td>有符号整型</td>
+</tr>
+<tr>
+<td>uint8,uint16,uint32,uint64</td>
+<td>无符号整型</td>
+</tr>
+<tr>
+<td>single</td>
+<td>单精度浮点型</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度浮点型</td>
+</tr>
+<tr>
+<td>logical</td>
+<td>逻辑型</td>
+</tr>
+<tr>
+<td>char</td>
+<td>字符串型</td>
+</tr>
+<tr>
+<td>cell</td>
+<td>单元数组型</td>
+</tr>
+<tr>
+<td>struct</td>
+<td>结构体型</td>
+</tr>
+<tr>
+<td>function_handle</td>
+<td>函数句柄型</td>
+</tr>
+</tbody></table>
+<p>​	在命令行中声明了变量之后，我们可以调用whos语句查看当前已经声明的所有变量以及详细信息</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">clc;//清屏</span><br><span class="line">a1=int8(<span class="number">6</span>)</span><br><span class="line">a2=int16(<span class="number">-20</span>)</span><br><span class="line">a3=uint32(<span class="number">100</span>)</span><br><span class="line">a4=uint64(<span class="number">200</span>)</span><br><span class="line">b1=single(<span class="number">3.5</span>)</span><br><span class="line">b2=<span class="number">12</span></span><br><span class="line">c1=<span class="built_in">true</span></span><br><span class="line">c2&#123;<span class="number">1</span>,<span class="number">1</span>&#125;=<span class="number">100</span></span><br><span class="line">c3=<span class="string">&#x27;hello&#x27;</span></span><br><span class="line">c4.name=<span class="string">&#x27;robin&#x27;</span></span><br><span class="line">d=@<span class="built_in">cos</span></span><br></pre></td></tr></table></figure>
+
+<p>​	调用whos语句观察变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Name      Size            Bytes  Class              Attributes</span><br><span class="line"></span><br><span class="line"> a         1x1                 8  double                       </span><br><span class="line"> a1        1x1                 1  int8                         </span><br><span class="line"> a2        1x1                 2  int16                        </span><br><span class="line"> a3        1x1                 4  uint32                       </span><br><span class="line"> a4        1x1                 8  uint64                       </span><br><span class="line"> b         1x1                 8  double                       </span><br><span class="line"> b1        1x1                 4  single                       </span><br><span class="line"> b2        1x1                 8  double                       </span><br><span class="line"> c         1x1                 8  double                       </span><br><span class="line"> c1        1x1                 1  logical                      </span><br><span class="line"> c2        1x1               120  cell                         </span><br><span class="line"> c3        1x5                10  char                         </span><br><span class="line"> c4        1x1               186  struct                       </span><br><span class="line"> d         1x1                32  function_handle </span><br></pre></td></tr></table></figure>
+
+<p><strong>在声明了数据变量后，可以用‘clc’语句清空当前命令行中的所有内容，但是不会清除变量的声明，要清除变量的声明，需要使用‘clear all‘语句</strong>	</p>
+<p>在程序中，可以调用intmin()和intmax()得到有符号整数和无符号整数的取值范围</p>
+<h2 id="浮点数的取整"><a href="#浮点数的取整" class="headerlink" title="浮点数的取整"></a>浮点数的取整</h2><p>​	MATLAB中，对于浮点数有对应的取整函数，不同的函数具体实现结果也不一样</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>round()</td>
+<td>向最接近的整数取整，如果小数为0.5，则取绝对值大的整数</td>
+</tr>
+<tr>
+<td>fix()</td>
+<td>向0取整</td>
+</tr>
+<tr>
+<td>floor()</td>
+<td>不大于该数的最接近整数</td>
+</tr>
+<tr>
+<td>ceil()</td>
+<td>不小于该数的最接近整数</td>
+</tr>
+</tbody></table>
+<p>​	双精度浮点数(double)是MATLAB中默认的数据类型，如果输入某个数据后没有明确的指明类型，则默认为double双精度浮点数类型</p>
+<h2 id="不同数据类型之间的运算"><a href="#不同数据类型之间的运算" class="headerlink" title="不同数据类型之间的运算"></a>不同数据类型之间的运算</h2><p>​	在MATLAB中，不同的数据类型之间也可以进行运算，比如：</p>
+<p>1.浮点数和其他类型的数据进行运算时，返回的结果取决于运算中的其他数据类型。</p>
+<p>2.单精度浮点型与逻辑型和字符型进行运算时，返回结果为单精度浮点型</p>
+<p>3.单精度浮点型不能和整数型进行运算，如果需要运算必须先将单精度型转换为双精度型</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"> a=single(<span class="number">123.4</span>)</span><br><span class="line"></span><br><span class="line">a =</span><br><span class="line"></span><br><span class="line">  single</span><br><span class="line"></span><br><span class="line">  <span class="number">123.4000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; b1=a+<span class="built_in">true</span></span><br><span class="line"></span><br><span class="line">b1 =</span><br><span class="line"></span><br><span class="line">  single</span><br><span class="line"></span><br><span class="line">  <span class="number">124.4000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; b2=a+<span class="string">&#x27;a&#x27;</span></span><br><span class="line"></span><br><span class="line">b2 =</span><br><span class="line"></span><br><span class="line">  single</span><br><span class="line"></span><br><span class="line">  <span class="number">220.4000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; b3=a+<span class="number">10.5</span></span><br><span class="line"></span><br><span class="line">b3 =</span><br><span class="line"></span><br><span class="line">  single</span><br><span class="line"></span><br><span class="line">  <span class="number">133.9000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; c=double(<span class="number">678.9</span>)</span><br><span class="line"></span><br><span class="line">c =</span><br><span class="line"></span><br><span class="line">  <span class="number">678.9000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d1=c+<span class="built_in">false</span></span><br><span class="line"></span><br><span class="line">d1 =</span><br><span class="line"></span><br><span class="line">  <span class="number">678.9000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d2=c+<span class="string">&#x27;hello&#x27;</span></span><br><span class="line"></span><br><span class="line">d2 =</span><br><span class="line"></span><br><span class="line">  <span class="number">782.9000</span>  <span class="number">779.9000</span>  <span class="number">786.9000</span>  <span class="number">786.9000</span>  <span class="number">789.9000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d3=c+single(<span class="number">10.2</span>)</span><br><span class="line"></span><br><span class="line">d3 =</span><br><span class="line"></span><br><span class="line">  single</span><br><span class="line"></span><br><span class="line">  <span class="number">689.1000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d4=c+int32(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">d4 =</span><br><span class="line"></span><br><span class="line">  int32</span><br><span class="line"></span><br><span class="line">   <span class="number">779</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; </span><br></pre></td></tr></table></figure>
+
+<p>​	调用whos语句观察所有变量，即可观察到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Name      Size            Bytes  Class     Attributes</span><br><span class="line"></span><br><span class="line"> a         1x1                 4  single              </span><br><span class="line"> b1        1x1                 4  single              </span><br><span class="line"> b2        1x1                 4  single              </span><br><span class="line"> b3        1x1                 4  single              </span><br><span class="line"> c         1x1                 8  double              </span><br><span class="line"> d1        1x1                 8  double              </span><br><span class="line"> d2        1x5                40  double              </span><br><span class="line"> d3        1x1                 4  single              </span><br><span class="line"> d4        1x1                 4  int32               </span><br></pre></td></tr></table></figure>
+
+<h2 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>complex()</td>
+<td>创建复数，a为实，b为虚部</td>
+</tr>
+<tr>
+<td>real(z)</td>
+<td>得到复数z的实部</td>
+</tr>
+<tr>
+<td>imag(z)</td>
+<td>得到复数z的虚部</td>
+</tr>
+<tr>
+<td>abs(z)</td>
+<td>得到复数z的模</td>
+</tr>
+<tr>
+<td>angle(z)</td>
+<td>得到复数z的角度</td>
+</tr>
+<tr>
+<td>conj(z)</td>
+<td>得到复数z的共轭复数</td>
+</tr>
+</tbody></table>
+<p>创建复数有两种方法，一种是直接声明，一种是调用complex函数声明</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">clear all;</span><br><span class="line">z1=<span class="number">3</span>+<span class="number">5</span><span class="built_in">i</span></span><br><span class="line">z2=<span class="number">4</span>+<span class="number">5</span><span class="built_in">j</span></span><br><span class="line">z3=<span class="built_in">complex</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">z4=<span class="built_in">complex</span>(<span class="number">1</span>:<span class="number">4</span>,<span class="number">2</span>:<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<p>其中z4变量的声明之后，我们会发现z4变量的结果是这样的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">z4 =</span><br><span class="line"></span><br><span class="line">   1.0000 + 2.0000i   2.0000 + 3.0000i   3.0000 + 4.0000i   4.0000 + 5.0000i</span><br></pre></td></tr></table></figure>
+
+<p>​	我们可以看出，z4中的“：”，相当于从1一直声明到4，类似于c语言中的for循环一样</p>
+<h2 id="数值显示格式"><a href="#数值显示格式" class="headerlink" title="数值显示格式"></a>数值显示格式</h2><p>​	MATLAB中有专门的函数format()，确定数值类型的显示格式</p>
+<table>
+<thead>
+<tr>
+<th>format()函数格式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>format short或format(‘short’)</td>
+<td>默认显示，保留小数点后4位</td>
+</tr>
+<tr>
+<td>format long或format(‘long’)</td>
+<td>有效数字16位</td>
+</tr>
+<tr>
+<td>format long e</td>
+<td>有效数字16位加3位指数</td>
+</tr>
+<tr>
+<td>format short e</td>
+<td>有效数字5位加3位指数</td>
+</tr>
+<tr>
+<td>format bank或format(‘bank’)</td>
+<td>保留两位小数位</td>
+</tr>
+<tr>
+<td>format +或format(‘+’)</td>
+<td>只给出正、负</td>
+</tr>
+<tr>
+<td>format rational或format(‘rational’)</td>
+<td>以分数形式表示</td>
+</tr>
+<tr>
+<td>format hex或format(‘hex’)</td>
+<td>16进制数</td>
+</tr>
+<tr>
+<td>format long g</td>
+<td>15位有效数</td>
+</tr>
+<tr>
+<td>format short g</td>
+<td>5位有效数</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2022/05/19/ReAlgorithm/" class="pre-post btn btn-default" title='ReAlgorithm'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            ReAlgorithm</span>
+    </a>
+    
+    
+    <a href="/2022/04/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="next-post btn btn-default" title='计算机网络'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            计算机网络</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Section-1"><span class="toc-text">Section 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E5%8F%96%E6%95%B4"><span class="toc-text">浮点数的取整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-text">不同数据类型之间的运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E6%95%B0"><span class="toc-text">复数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E6%98%BE%E7%A4%BA%E6%A0%BC%E5%BC%8F"><span class="toc-text">数值显示格式</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
