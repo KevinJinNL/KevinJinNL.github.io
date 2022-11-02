@@ -1,0 +1,659 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Kevin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="数据拟合​	当遇到一个对于多个变量需要探求其中内在联系的问题，可以使用插值拟合方法，并通过绘图观察出潜在关系	
+拟合即为将数据转化为近似的曲线
+例：
+
+拟合命令如下：
+12345678%poly..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    数学模型 |
+    
+    Kevin&#39;s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.4pvt8z0ci5y0.webp)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Kevin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        Kevin&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/CS基础/"><i class="fa "></i>
+                                CS基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/语言学习/"><i class="fa "></i>
+                                语言学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/杂谈/"><i class="fa "></i>
+                                杂谈</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="数学模型">
+            
+            数学模型
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/CS%E5%9F%BA%E7%A1%80/">CS基础</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/06/20</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="数据拟合"><a href="#数据拟合" class="headerlink" title="数据拟合"></a>数据拟合</h1><p>​	<strong>当遇到一个对于多个变量需要探求其中内在联系的问题，可以使用插值拟合方法，并通过绘图观察出潜在关系</strong>	</p>
+<p>拟合即为将数据转化为近似的曲线</p>
+<p><strong>例：</strong></p>
+<p><img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220907153048824.png" alt="image-20220907153048824"></p>
+<p>拟合命令如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%polyfit(X,Y,N) 多项式拟合，返回降幂排列的多项式系数</span></span><br><span class="line"><span class="comment">%polyval(P,xi) 计算多项式的值</span></span><br><span class="line">x=[<span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span>];</span><br><span class="line">y=[<span class="number">9</span> <span class="number">7</span> <span class="number">6</span> <span class="number">3</span> <span class="number">-1</span> <span class="number">2</span> <span class="number">5</span> <span class="number">7</span> <span class="number">20</span>];</span><br><span class="line">P=polyfit(x,y,<span class="number">3</span>);</span><br><span class="line">xi=<span class="number">0</span>:<span class="number">.2</span>:<span class="number">10</span>;<span class="comment">%生成以零点二为间隔，从0一直到10的矢量</span></span><br><span class="line">yi=polyval(P,xi);</span><br><span class="line"><span class="built_in">plot</span>(xi,yi,x,y,<span class="string">&#x27;r*&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220907153328365.png" alt="image-20220907153328365" style="zoom:67%;" />
+
+<h2 id="曲线拟合与函数逼近"><a href="#曲线拟合与函数逼近" class="headerlink" title="曲线拟合与函数逼近"></a>曲线拟合与函数逼近</h2><p>​	曲线拟合是指已知一组离散数据，选择一个较为简单的函数f(x)（如多项式），在一定准则(如最小二乘准则)下，最接近这些数据。</p>
+<p>​	而曲线逼近是指已知一个较为复杂的连续函数，要求选择一个较为简单的函数，在一定准则下最接近y(x)，为函数逼近</p>
+<h2 id="三次样条插值函数"><a href="#三次样条插值函数" class="headerlink" title="三次样条插值函数"></a>三次样条插值函数</h2><p>​	Matlab中三次样条插值有以下函数：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">y=interp1(x0,y0,x,<span class="string">&#x27;spline&#x27;</span>);</span><br><span class="line">y=spline(x0,y0,x);</span><br><span class="line">pp=csape(x0,y0,conds);</span><br><span class="line">pp=csape(x0,y0,conds,valconds);y=fnval(pp,x);</span><br><span class="line"><span class="comment">%x0,y0是已知数据点，x是插值点，y是插值点的函数值</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>对于三次样条插值，提倡使用函数csape,其返回值是pp形式</strong></p>
+<h1 id="评价类模型"><a href="#评价类模型" class="headerlink" title="评价类模型"></a>评价类模型</h1><h2 id="层次分析法"><a href="#层次分析法" class="headerlink" title="层次分析法"></a>层次分析法</h2><p>​	最基础的模型之一，主要用于解决评价类问题，比如哪种方案更好或者哪位运动员或者员工的表现最优秀</p>
+<p>​	对对象的各种指标进行打分，即分配权重，最后各个指标的权重和为1</p>
+<p>​	用打分法解决评价类问题，可以用以下表格的思维解决</p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.268drcp5auhs.webp" alt="image" style="zoom:50%;" />
+
+<p>关键：</p>
+<p>​	1.确定评价指标</p>
+<p>​	2.形成评价体系</p>
+<p>在对各种指标进行比较的时候，如果一次性考虑五个指标之间的关系，往往考虑不周，所以我们采取分而治之的思想，对所有指标两两比较，最后推算出权重</p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.2wehhlw9y2o0.webp" alt="image" style="zoom:50%;" />
+
+<p>对于景点，我们有以下几个指标可以作为认为这个景点是否值得去的依据</p>
+<ul>
+<li>景色</li>
+<li>花费</li>
+<li>居住</li>
+<li>饮食</li>
+<li>交通</li>
+</ul>
+<p>随之我们也可以排出这样的一副表</p>
+<p><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.3kbjxdbuwww0.webp" alt="image"></p>
+<p>总结：可以看出上方两两因素的比较可以构成一个5*5方阵，记为A，对应的元素为aij</p>
+<ol>
+<li>aij表示的意义是，与指标j相比，i的重要程度</li>
+<li>当i&#x3D;j时，两个指标相同，因此同等重要记为1，这就解释了主对角线元素为1</li>
+<li>aij&gt;0且满足aij*aji&#x3D;1(满足这一条件的矩阵为正互反矩阵)</li>
+</ol>
+<p>然而，在各种指标的评价中，需要遵守最起码的原则，不然会出现不一致的现象</p>
+<p><strong>符合基本规律即满足aij*ajk&#x3D;aik，我们称其为一致矩阵，而想要观察是否为一致矩阵，只需要看相邻两行是否成倍数关系</strong></p>
+<p><strong>检验一致性</strong>：</p>
+<p>1.计算一致性指标CI</p>
+<p>​	<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.5cfxyyieq3w0.webp" alt="image"></p>
+<p>2.查找对应的平均随机一致性指标RI</p>
+<p><img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220623165317606.png" alt="image-20220623165317606"></p>
+<p>3.计算一致性比例CR</p>
+<p><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.3o9qh9r2fjc0.webp" alt="image"></p>
+<p> 在准备工作做好后，我们可以利用判断矩阵计算权重</p>
+<p><img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.ke9g1tkhmzk.webp" alt="image"></p>
+<p>使用第一列数据，可以计算出权重</p>
+<p>苏杭&#x3D;1&#x2F;（1+0.5+0.2）&#x3D;0.5882</p>
+<p>北戴河&#x3D;0.5&#x2F;（1+0.5+0.2)&#x3D;0.2941</p>
+<p>桂林&#x3D;0.2&#x2F;（1+0.5+0.2）&#x3D;0.1177</p>
+<p>以此类推，也可以通过后两列的数据计算出权重来</p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.5znsyq50nxo0.webp" alt="image" style="zoom:50%;" />
+
+<h3 id="特征值法求权重"><a href="#特征值法求权重" class="headerlink" title="特征值法求权重"></a>特征值法求权重</h3><p>​	如果我们的<strong>判断矩阵一致性可以接受</strong>，那么我们可以仿照一致矩阵权重的求法</p>
+<p>1.求出矩阵A的最大特征值以及其对应的特征向量</p>
+<p>2.对求出的特征向量进行归一化即可得到我们的权重</p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.7j64qh13pis0.webp" alt="image" style="zoom:50%;" />
+
+<p>如果用到了层次分析法，那我们需要构造层次分析图，并且绘制好后放入论文中</p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.7gn5ffmptf80.webp" alt="image" style="zoom:50%;" />
+
+<p><strong>缺点：任何评价类模型都具有主观性</strong></p>
+<h1 id="线性规划模型"><a href="#线性规划模型" class="headerlink" title="线性规划模型"></a>线性规划模型</h1><p>线性规划就是在一组线性约束条件下，求线性目标函数的最大或最小值</p>
+<img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.vjwambkltn4.webp?raw=true" alt="image" style="zoom: 67%;" />
+
+<p><strong>线性规划适用题型</strong></p>
+<p>​	比如题目中提到<strong>“怎样安排&#x2F;分配”  “尽量多(少)”  “利润最大”</strong>等词</p>
+<p>“有什么条件，原材料等等，怎样安排利润收益最大”诸如此类</p>
+<ul>
+<li>生产安排</li>
+<li>投资收益</li>
+<li>销售运输</li>
+<li>车辆安排</li>
+</ul>
+<p><strong>代码实现</strong></p>
+<p>​	matlab中有自带的线性规划函数，<strong>Linprog函数</strong>，</p>
+<p>首先要将其模型化为matlab标准型：目标函数最小值、约束条件小于等于号或等号</p>
+<p>p.s:如果是求最大值比如求W的最大值，只需转化为求-W的最小值即可，约束条件的转化同理</p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.3sy7gwfipu00.webp" alt="image" style="zoom:50%;" />
+
+<p><strong>转化案例</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.2199xzakf4e8.webp" alt="image" style="zoom:50%;" />
+
+<p><strong>注意事项</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/xxx/image.2lgc1f007w00.webp" alt="image" style="zoom:50%;" />
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f=[<span class="number">-40</span>;<span class="number">-30</span>];<span class="comment">%目标函数中变量的系数矩阵</span></span><br><span class="line">A=[<span class="number">1</span>,<span class="number">1</span>;</span><br><span class="line"><span class="number">-1</span>,<span class="number">0</span>;</span><br><span class="line"><span class="number">0</span>,<span class="number">-1</span>;</span><br><span class="line"><span class="number">240</span>,<span class="number">120</span>];<span class="comment">%小于等于的约束条件中系数矩阵</span></span><br><span class="line">b=[<span class="number">6</span>;<span class="number">-1</span>;<span class="number">-1</span>;<span class="number">1200</span>];<span class="comment">%小于等于的约束条件中常数项矩阵</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Linprog函数"><a href="#Linprog函数" class="headerlink" title="Linprog函数"></a>Linprog函数</h2><p>​	对于在线性规划中使用的核心函数，以及在后面其他类型问题中需要使用的方法，对于linprog函数，需要作出详细的使用方法</p>
+<p><strong>同样的，我们先引入一个例题，来更好的理解该函数的用法</strong></p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.3hyvhd9gpwm0.webp?raw=true" alt="image"></p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.1w9oej66ip28.webp?raw=true" alt="image"></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%matlab中linprog函数的标准形式为</span></span><br><span class="line"><span class="comment">%[x,fval]=linprog(f,A,b,Aeq,beq,lb,ub)</span></span><br><span class="line"><span class="comment">%f为价值向量</span></span><br><span class="line">f=[<span class="number">-2</span>;<span class="number">-3</span>;<span class="number">5</span>];</span><br><span class="line"><span class="comment">%a为不等式约束</span></span><br><span class="line">a=[<span class="number">-2</span>,<span class="number">5</span>,<span class="number">-1</span>;</span><br><span class="line">	<span class="number">1</span>,<span class="number">3</span>,<span class="number">1</span>];</span><br><span class="line"><span class="comment">%b为不等式约束的值</span></span><br><span class="line">b=[<span class="number">-10</span>;<span class="number">12</span>];</span><br><span class="line"><span class="comment">%aeq为线性等式约束</span></span><br><span class="line">aeq=[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>];</span><br><span class="line"><span class="comment">%beq同理</span></span><br><span class="line">beq=<span class="number">7</span>;</span><br><span class="line">[x,y]=linprog(f,a,b,aeq,beq,<span class="built_in">zeros</span>(<span class="number">3</span>,<span class="number">1</span>));</span><br><span class="line">x,y=-y;</span><br><span class="line"><span class="comment">%zeros()函数的意思是，构造一个3行1列的全0矩阵</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>运行结果</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; f=[<span class="number">-40</span>;<span class="number">-30</span>];</span><br><span class="line">&gt;&gt; a=[<span class="number">1</span>,<span class="number">1</span>;<span class="number">-1</span>,<span class="number">0</span>;<span class="number">0</span>,<span class="number">-1</span>;<span class="number">240</span>,<span class="number">120</span>];</span><br><span class="line">&gt;&gt; b=[<span class="number">6</span>;<span class="number">-1</span>;<span class="number">-1</span>;<span class="number">1200</span>];</span><br><span class="line">&gt;&gt; [x,y]=linprog(f,a,b)</span><br><span class="line"></span><br><span class="line">x =</span><br><span class="line"></span><br><span class="line">    <span class="number">4.0000</span></span><br><span class="line">    <span class="number">2.0000</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y =</span><br><span class="line"></span><br><span class="line"> <span class="number">-220.0000</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; y=-y</span><br><span class="line"></span><br><span class="line">y =</span><br><span class="line"></span><br><span class="line">  <span class="number">220.0000</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="可转化为线性规划的问题"><a href="#可转化为线性规划的问题" class="headerlink" title="可转化为线性规划的问题"></a>可转化为线性规划的问题</h2><p>​	有的问题看起来不是数学规划问题，但是实际上也可以变化成线性规划的问题来解决</p>
+<p><strong>比如数学规划问题</strong></p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.10xkq7s4dxww.webp?raw=true" alt="image"></p>
+<p>我们再次举出一个例子</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.5obkmeh5uu80.webp?raw=true" alt="image"></p>
+<p>对于这种非典型的线性规划问题，对于他来说matlab的标准式有一些区别</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.1zjmyj79gzj4.webp?raw=true" alt="image"></p>
+<p>即对于最后调用函数时，参数的设置与典型的线性规划有一些区别</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">c=<span class="number">1</span>:<span class="number">4</span>;c=[c,c];</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">1</span>;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-3</span>;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">-2</span>,<span class="number">3</span>];</span><br><span class="line">a=[a,-a];<span class="comment">%构造变换后新的系数矩阵</span></span><br><span class="line">b=[<span class="number">-2</span> <span class="number">-1</span> <span class="number">-1</span>/<span class="number">2</span>];</span><br><span class="line">[y,z]=linprog(c,a,b,[],[],<span class="built_in">zeros</span>(<span class="number">8</span>,<span class="number">1</span>))<span class="comment">%此处没有等式约束，所以对应矩阵为空矩阵</span></span><br><span class="line">x=y(<span class="number">1</span>:<span class="number">4</span>)-y(<span class="number">5</span>:<span class="keyword">end</span>)<span class="comment">%变换到原问题的解，x=u-v</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h1><p>​	<strong>整数规划是什么？</strong></p>
+<p>数学规划中的变量（部分或全部）限制为整数时，称为整数规划</p>
+<p>举一个将线性规划的问题转化为整数规划后的情况</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.73cm61901ow0.webp?raw=true" alt="image"></p>
+<p>对于整数规划，求解方法有如下分类</p>
+<ol>
+<li>分支定界法</li>
+<li>割平面法</li>
+<li>隐枚举法<ol>
+<li>过滤隐枚举法</li>
+<li>分支隐枚举法</li>
+</ol>
+</li>
+<li>匈牙利法</li>
+<li>蒙特卡洛法</li>
+</ol>
+<h2 id="0-1型整数规划"><a href="#0-1型整数规划" class="headerlink" title="0-1型整数规划"></a>0-1型整数规划</h2><p>​	0-1型整数规划指的是问题中的变量x仅取值0或1</p>
+<p>​	举一个例子，<strong>运送货物，有两种运输方式可供选择，但只能选择一种运输方式</strong>：1.用车运输 2.用船运输</p>
+<p>用车运输时，约束条件为：</p>
+<p>5x1+4x2&lt;&#x3D;24</p>
+<p>用船运输时，约束条件为：</p>
+<p>7x1+3x2&lt;&#x3D;45</p>
+<p><strong>为了统一一个问题，引入0-1变量：</strong></p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.1nbi4qyhr62o.webp?raw=true" alt="image"></p>
+<p>则对于0-1型整数规划问题，我们可将该问题的约束条件改写为</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.1oweyyaum9s0.webp?raw=true" alt="image"></p>
+<p>​																			其中<strong>M</strong>为充分大的数</p>
+<p>当问题中有多个互相排斥的约束条件时，我们的应对也很简单，引入m个0-1变量即可</p>
+<p><strong>Y</strong>i&#x3D;1时，第i个约束起作用，等于0时，则第i个约束不起作用</p>
+<h2 id="关于固定费用的问题-Fixed-Cost-Problem"><a href="#关于固定费用的问题-Fixed-Cost-Problem" class="headerlink" title="关于固定费用的问题(Fixed Cost Problem)"></a>关于固定费用的问题(Fixed Cost Problem)</h2><p>​	线性规划中，有些问题要求使成本最小，那么可设固定成本为常数，并且在线性规划的模型中不必明显列出，但有些问题不能用一般线性规划描述，可改变为混合整数规划来解决</p>
+<p>​	<strong>现在假设有这样一个情景，生产一批货物，有三种方式，每一种不同的方式带来的单件成本和产量以及固定成本不一样</strong></p>
+<p>那对于这类问题，我们可以这样入手并且得到目标函数</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220828/image.dh5cgvrxuvc.webp" alt="image"></p>
+<p>对于其中的各个变量，我们有以下不同的限制</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220828/image.6c9miag0psc0.webp" alt="image"></p>
+<p>于是我们可以对总成本构造相应的目标函数：</p>
+<p><strong>min z&#x3D;(k1y1+c1x1)+(k2y2+c2x2)+(k3y3+c3y3)</strong></p>
+<h1 id="蒙特卡洛法-随机取样法"><a href="#蒙特卡洛法-随机取样法" class="headerlink" title="蒙特卡洛法(随机取样法)"></a>蒙特卡洛法(随机取样法)</h1><p>​	蒙特卡洛法，基于大量事件的统计结果来实现一些确定性问题的计算</p>
+<p>​	使用蒙特卡洛法生成相关分布的随机数</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220828/image.1fhp6teoukn4.webp" alt="image"></p>
+<p>设计的随机试验的思想：在矩形区域[0,12]*[0,9]上产生均匀分布的10的七次方个随机点，统计随机点落在曲边三角形的频数，则曲边三角形的面积近似为上述举行的面积乘以频率</p>
+<p>Matlab程序如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">clc,clear</span><br><span class="line">x=unifrnd(<span class="number">0</span>,<span class="number">12</span>,[<span class="number">1</span>,<span class="number">10000000</span>]);</span><br><span class="line">y=unifrnd(<span class="number">0</span>,<span class="number">9</span>,[<span class="number">1</span>,<span class="number">10000000</span>]);</span><br><span class="line">pinshu=sum(y&lt;x.^<span class="number">2</span>&amp;x&lt;=<span class="number">3</span>)+sum(y&lt;<span class="number">12</span>-x&amp;x&gt;=<span class="number">3</span>);</span><br><span class="line">area_appr=<span class="number">12</span>*<span class="number">9</span>*pinshu/<span class="number">10</span>^<span class="number">7</span>;</span><br></pre></td></tr></table></figure>
+
+<p>非线性整数规划当自变量维数很大和取值范围很宽时，穷举法是不现实的，但是采用蒙特卡洛法可以得出一个满意解</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220828/image.73jwh5rmb980.webp" alt="image"></p>
+<p>首先编写M文件mente.m定义目标函数f和约束向量函数g</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span><span class="params">[f,g]</span>=<span class="title">mente</span><span class="params">(x)</span>;</span></span><br><span class="line">f=x(<span class="number">1</span>)^<span class="number">2</span>+x(<span class="number">2</span>)^<span class="number">2</span>+<span class="number">3</span>*x(<span class="number">3</span>)^<span class="number">2</span>+<span class="number">4</span>*x(<span class="number">4</span>)^<span class="number">2</span>+<span class="number">2</span>*x(<span class="number">5</span>)^<span class="number">2</span><span class="number">-8</span>*x(<span class="number">1</span>)<span class="number">-2</span>*x(<span class="number">2</span>)<span class="number">-3</span>*x(<span class="number">3</span>)-x(<span class="number">4</span>)<span class="number">-2</span>x(<span class="number">5</span>);</span><br><span class="line">x(<span class="number">4</span>)<span class="number">-2</span>*x(<span class="number">5</span>);</span><br><span class="line">g=[sum(x)<span class="number">-400</span></span><br><span class="line">x(<span class="number">1</span>)+<span class="number">2</span>*x(<span class="number">2</span>)+<span class="number">2</span>*x(<span class="number">3</span>)+x(<span class="number">4</span>)+<span class="number">6</span>*x(<span class="number">5</span>)<span class="number">-800</span></span><br><span class="line"><span class="number">2</span>*x(<span class="number">1</span>)+x(<span class="number">2</span>)+<span class="number">6</span>*x(<span class="number">3</span>)<span class="number">-200</span></span><br><span class="line">x(<span class="number">3</span>)+x(<span class="number">4</span>)+<span class="number">5</span>*x(<span class="number">5</span>)<span class="number">-200</span>]</span><br><span class="line"><span class="comment">%该文件与上方约束条件为对应关系，一目了然</span></span><br></pre></td></tr></table></figure>
+
+<p>然后编写程序求解</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rand</span>(<span class="string">&#x27;state&#x27;</span>,sum(clock));<span class="comment">%初始化随机数发生器</span></span><br><span class="line">p0=<span class="number">0</span>;</span><br><span class="line">tic <span class="comment">%计时开始</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">10</span>^<span class="number">6</span></span><br><span class="line">	x=randi([<span class="number">0</span>,<span class="number">99</span>],<span class="number">1</span>,<span class="number">5</span>);<span class="comment">%产生一行五列的区间[0，99]上的随机整数</span></span><br><span class="line">	[f,g]=mengte(x);</span><br><span class="line">	<span class="keyword">if</span> all(g&lt;=<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">if</span> p0&lt;f</span><br><span class="line">				x0=x;p0=f;<span class="comment">%记录下当前较好的解</span></span><br><span class="line">				<span class="keyword">end</span></span><br><span class="line">		<span class="keyword">end</span></span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	x0,p0</span><br><span class="line">	toc<span class="comment">%计时结束</span></span><br><span class="line"><span class="comment">%由于是随机模拟，因此每次运行的结果都是不一样的</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="整数线性规划的计算机求解"><a href="#整数线性规划的计算机求解" class="headerlink" title="整数线性规划的计算机求解"></a>整数线性规划的计算机求解</h1><p>Matlab求解混合整数线性规划的命令为</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[x,fval]=intlinprog(f,intcon,A,b,Aeq,beq,lb,ub)</span><br></pre></td></tr></table></figure>
+
+<p><strong>MATLAB标准式：</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220828/image.7e3z18yt9bg0.webp" alt="image"></p>
+<h1 id="非线性规划"><a href="#非线性规划" class="headerlink" title="非线性规划"></a>非线性规划</h1><p>理解非线性规划其实很简单</p>
+<ul>
+<li>线性规划:所有变量都是一次方</li>
+<li>非线性规划:至少一个变量不是一次方</li>
+</ul>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.41cl97o3h3e0.webp?raw=true" alt="image"></p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.ca0rj8spjzs.webp?raw=true" alt="d"></p>
+<p>对于该函数中的fun1和fun2参数，应当在新建的文件中另外书写</p>
+<p><strong>fun1</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>=<span class="title">fun1</span><span class="params">(x)</span>%后面的函数名一定要和文件名相同，<span class="title">func2</span>同理</span></span><br><span class="line">f=sum(x.^<span class="number">2</span>)+<span class="number">8</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>fun2</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[g,h]</span>=<span class="title">func2</span><span class="params">(x)</span></span></span><br><span class="line">g=[-x(<span class="number">1</span>)^<span class="number">2</span>+x(<span class="number">2</span>)-x(<span class="number">3</span>)^<span class="number">2</span></span><br><span class="line">   x(<span class="number">1</span>)+x(<span class="number">2</span>)^<span class="number">2</span>+x(<span class="number">3</span>)^<span class="number">3</span><span class="number">-20</span>]</span><br><span class="line">h=[-x(<span class="number">1</span>)-x(<span class="number">2</span>)^<span class="number">2</span>+<span class="number">2</span></span><br><span class="line">   x(<span class="number">2</span>)+<span class="number">2</span>*x(<span class="number">3</span>)^<span class="number">2</span><span class="number">-3</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>test_of_func</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[x,y]=fmincon(<span class="string">&#x27;fun1&#x27;</span>,[<span class="number">10</span>;<span class="number">0</span>;<span class="number">0</span>],[],[],[],[],[<span class="number">0</span>;<span class="number">0</span>;<span class="number">0</span>],[],<span class="string">&#x27;func2&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>非线性规划适用的典型赛题</strong></p>
+<ul>
+<li>题目中提到“<strong>怎样安排&#x2F;分配，尽量多&#x2F;少等等</strong>”，大致条件与线性规划相同，但是变量起码有一个是非一次方</li>
+<li><strong>投资规划&amp;投资决策</strong>：求出最佳投资方案</li>
+</ul>
+<p>​	在投资决策中，约束分为等式约束以及不等式约束</p>
+<ul>
+<li><strong>角度调整</strong>：飞行管理避免相撞；影院最佳视角<ul>
+<li>飞机位置，速度，进入区域后判定是否相撞，飞机飞行方向角调整的幅度尽量小</li>
+<li>电影院视角仰角影响观影体验，什么位置观影最佳</li>
+<li>涉及三角函数，为非线性</li>
+</ul>
+</li>
+<li><strong>生产安排</strong>：原材料、设备有限制、总利润最大(目标函数或约束条件含有<strong>非线性变量</strong>)</li>
+</ul>
+<p><strong>当将一个实际问题归结成非线性规划问题时，一般注意：</strong></p>
+<ol>
+<li>确定供选方案：收集同问题有关的资料和数据，对问题的情况要足够熟悉</li>
+<li>提出追求目标：通过资料分析，结合实际需求，追求极小化或者极大化</li>
+<li>给出价值标准：提出追求目标后，确定考虑目标的好或者坏，并用具体的数量形式描述</li>
+<li>寻求限制条件：问题中需要考虑到实际上会有的限制条件</li>
+</ol>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220829/image.3o40w0388le0.webp" alt="image"></p>
+<p>Matlab中非线性规划的求解命令是</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[x,fval]=fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options)</span><br><span class="line"><span class="comment">%x的返回值式决策向量x的取值，fval返回的是目标函数的取值</span></span><br><span class="line"><span class="comment">%其中fun是用M文件定义的函数f(x)</span></span><br><span class="line"><span class="comment">%x0是x的初始值</span></span><br><span class="line"><span class="comment">%A,b,Aeq,beq定义了线性约束A*b&lt;=b,Aeq*x=beq</span></span><br><span class="line"><span class="comment">%若没有线性约束，则A=[],b=[],Aeq=[],beq=[]</span></span><br><span class="line"><span class="comment">%lb和ub是变量x的下界和上界</span></span><br><span class="line"><span class="comment">%若上下界无约束，则可以写lb各分量为-inf(为负无穷)，ub各分量为inf(正无穷)</span></span><br><span class="line"><span class="comment">%nonlcon是用M文件定义的非线性向量函数c(x),ceq(x)</span></span><br><span class="line"><span class="comment">%options定义了优化参数，可以使用Matlab默认的参数配置</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220829/8911F3B08C136C2CD47A2696367A6B65.d77bxc79nvc.webp" alt="8911F3B08C136C2CD47A2696367A6B65" style="zoom: 50%;" />
+
+<h2 id="无约束极值问题的符号解"><a href="#无约束极值问题的符号解" class="headerlink" title="无约束极值问题的符号解"></a>无约束极值问题的符号解</h2><p><strong>例</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220829/image.1yy67qae4g9s.webp" alt="image"></p>
+<p>对于多元多次方程，求极值的步骤为</p>
+<ol>
+<li>分别对各项进行求导，得出对应的偏导数</li>
+<li>求出偏导数之后进行高阶偏导数变换</li>
+</ol>
+<img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220829/image.3y79aw4tcdk0.webp" alt="image" style="zoom: 67%;" />
+
+<p>对于<strong>Hessian阵</strong>：</p>
+<ul>
+<li>驻点处Hessian阵为正定阵，则该点取最小值</li>
+<li>驻点处Hessian阵为负定阵，则该点取最大值</li>
+<li>驻点处Hessian阵为不定阵，则该驻点不是极值点</li>
+</ul>
+<p><strong>MATLAB程序实现如下：</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">clc,clear;</span><br><span class="line">syms x y</span><br><span class="line">f=x^<span class="number">3</span>-y^<span class="number">3</span>+<span class="number">3</span>*x^<span class="number">2</span>+<span class="number">3</span>*y^<span class="number">2</span><span class="number">-9</span>*x;</span><br><span class="line">df=jacobian(f);<span class="comment">%求一阶偏导数</span></span><br><span class="line">d2f=jacobian(df);<span class="comment">%求Hessian阵</span></span><br><span class="line">[xx,yy]=solve(df)<span class="comment">%求驻点</span></span><br><span class="line">xx=double(xx);yy=double(yy);<span class="comment">%转化为双精度浮点型数据，下面判断特征值的正负，必须是数值型数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(xx)</span><br><span class="line">	a=subs(d2f,&#123;x,y&#125;,&#123;xx(<span class="built_in">i</span>),yy(<span class="built_in">i</span>)&#125;);</span><br><span class="line">	b=eig(a);<span class="comment">%求矩阵的特征值</span></span><br><span class="line">	f=subs(f,&#123;x,y&#125;,&#123;xx(<span class="built_in">i</span>),yy(<span class="built_in">i</span>)&#125;);f=double(f);</span><br><span class="line">	<span class="keyword">if</span> all(b&gt;<span class="number">0</span>)</span><br><span class="line">		fprintf(<span class="string">&#x27;(%f,%f)是极小值点，对应的极小值为%f\n&#x27;</span>,xx(<span class="built_in">i</span>),yy(<span class="built_in">i</span>),f);</span><br><span class="line">	<span class="keyword">elseif</span> all(b&lt;<span class="number">0</span>)</span><br><span class="line">    	fprintf(<span class="string">&#x27;(%f,%f)是极大值点，对应的极大值为%f\n&#x27;</span>,xx(<span class="built_in">i</span>),yy(<span class="built_in">i</span>),f);</span><br><span class="line">    <span class="keyword">elseif</span> any(b&gt;<span class="number">0</span>)&amp;any(b&lt;<span class="number">0</span>)</span><br><span class="line">    	fprintf(<span class="string">&#x27;(%f,%f)不是极值点\n&#x27;</span>,xx(<span class="built_in">i</span>),yy(<span class="built_in">i</span>));</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    	fprintf(<span class="string">&#x27;无法判断(%f,%f)是否是极值点\n&#x27;</span>,xx(<span class="built_in">i</span>),yy(<span class="built_in">i</span>));</span><br><span class="line">    	<span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>结果</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(1.000000,0.000000)是极小值点，对应的极小值为-5.000000</span><br><span class="line">(-3.000000,0.000000)不是极值点</span><br><span class="line">(1.000000,2.000000)不是极值点</span><br><span class="line">(-3.000000,2.000000)是极大值点，对应的极大值为-5.000000</span><br></pre></td></tr></table></figure>
+
+<h2 id="无约束极值问题的数值解"><a href="#无约束极值问题的数值解" class="headerlink" title="无约束极值问题的数值解"></a>无约束极值问题的数值解</h2><p>Matlab中求解无约束极小值的函数有</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fminunc</span><br><span class="line">fminsearch</span><br><span class="line"><span class="comment">%其使用格式分别为</span></span><br><span class="line">[x,fval]=fminunc(fun,x0,options)</span><br><span class="line">[x,fval]=fminsearch(fun,x0,opitons)</span><br><span class="line"><span class="comment">%fun-要计算最小值的函数</span></span><br><span class="line"><span class="comment">%x0-初始点</span></span><br><span class="line"><span class="comment">%options-优化选项</span></span><br><span class="line"><span class="comment">%problem-问题结构体</span></span><br><span class="line"><span class="comment">%fminsearch只能求给定的初始值附近的一个极小值点</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220829/image.1yy67qae4g9s.webp" alt="image"></p>
+<p>Matlab程序如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">clc,clear</span><br><span class="line">f=@(x)x(<span class="number">1</span>)^<span class="number">3</span>-x(<span class="number">2</span>)^<span class="number">3</span>+<span class="number">3</span>*x(<span class="number">1</span>)^<span class="number">2</span>+<span class="number">3</span>*x(<span class="number">2</span>)^<span class="number">2</span><span class="number">-9</span>*x(<span class="number">1</span>);<span class="comment">%定义匿名函数</span></span><br><span class="line">g=@(x)-f(x);</span><br><span class="line">[xy1,z1]=fminunc(f,<span class="built_in">rand</span>(<span class="number">2</span>,<span class="number">1</span>))<span class="comment">%求极小值点</span></span><br><span class="line">[xy2,z2]=fminsearch(g,<span class="built_in">rand</span>(<span class="number">2</span>,<span class="number">1</span>));<span class="comment">%求极大值点</span></span><br><span class="line">xy2,z2=-z2</span><br></pre></td></tr></table></figure>
+
+<h2 id="求函数的零点和方程组的解"><a href="#求函数的零点和方程组的解" class="headerlink" title="求函数的零点和方程组的解"></a>求函数的零点和方程组的解</h2><p>例：求多项式f(x)&#x3D;x^3-x^2+2x-3的零点</p>
+<p>Matlab程序如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clc,clear</span><br><span class="line">xishu=[<span class="number">1</span> <span class="number">-1</span> <span class="number">2</span> <span class="number">-3</span>];<span class="comment">%多项式是用向量定义的，系数从高次幂到低次幂</span></span><br><span class="line">x0=roots(xishu)</span><br></pre></td></tr></table></figure>
+
+<p>符号求解程序如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">syms x</span><br><span class="line">x0=solve(x^<span class="number">3</span>-x^<span class="number">2</span>+<span class="number">2</span>*x<span class="number">-3</span>)<span class="comment">%求函数零点的符号解</span></span><br><span class="line">x0=vpa(x0,<span class="number">5</span>)<span class="comment">%化成小数格式的数据</span></span><br></pre></td></tr></table></figure>
+
+<p>数值解的程序如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y=@(x)x^<span class="number">3</span>-x^<span class="number">2</span>+<span class="number">2</span>*x<span class="number">-3</span>;</span><br><span class="line">x=fsolve(y,<span class="built_in">rand</span>)<span class="comment">%只能求给定初始值附近的一个零点</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="约束极值问题"><a href="#约束极值问题" class="headerlink" title="约束极值问题"></a>约束极值问题</h2><h3 id="二次规划"><a href="#二次规划" class="headerlink" title="二次规划"></a>二次规划</h3><p>​	若某非线性规划的目标函数为自变量x的二次函数，约束条件又全是线性的，就称这种规划为二次规划</p>
+<p>Matlab标准式</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220902/image.74kmngbft0g0.webp" alt="image"></p>
+<p>求解命令为</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[x,fval]=quadprog(H,f,A,b,Aeq,beq,lb,ub,x0,options)</span><br></pre></td></tr></table></figure>
+
+<p>返回值x是决策向量x的值</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220902/image.77nsmepszqo0.webp" alt="image"></p>
+<p>Matlab代码</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">h=[<span class="number">4</span>,<span class="number">-4</span>;<span class="number">-4</span>,<span class="number">8</span>];</span><br><span class="line">f=[<span class="number">-6</span>;<span class="number">-3</span>];</span><br><span class="line">a=[<span class="number">1</span>,<span class="number">1</span>;<span class="number">4</span>,<span class="number">1</span>];</span><br><span class="line">b=[<span class="number">3</span>;<span class="number">9</span>];</span><br><span class="line">[x,value]=quadprog(h,f,a,b,[],[],<span class="built_in">zeros</span>(<span class="number">2</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x =</span><br><span class="line">    1.9500</span><br><span class="line">    1.0500</span><br><span class="line">value =</span><br><span class="line">  -11.0250</span><br></pre></td></tr></table></figure>
+
+<h3 id="罚函数法"><a href="#罚函数法" class="headerlink" title="罚函数法"></a>罚函数法</h3><p>​	罚函数法可将非线性规划问题的求解转化为求解一系列无约束极值问题</p>
+<p>Matlab标准式</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220902/image.65tqqa084z40.webp" alt="image"></p>
+<p>取一个充分大的数M，然后利用如下公式构造函数</p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220902/image.98j1ze2nov4.webp" alt="image"></p>
+<p><strong>例：求解下列非线性规划</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220902/image.1e337m7nyzeo.webp" alt="image"></p>
+<ol>
+<li><p>定义增广目标函数，编写M函数test1.m如下</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>=<span class="title">test1</span><span class="params">(x)</span>;</span></span><br><span class="line">M=<span class="number">50000</span>;</span><br><span class="line">f=x(<span class="number">1</span>)^<span class="number">2</span>+x(<span class="number">2</span>)^<span class="number">2</span>+<span class="number">8</span>;</span><br><span class="line">g=f-M*<span class="built_in">min</span>(x(<span class="number">1</span>),<span class="number">0</span>)-M*<span class="built_in">min</span>(x(<span class="number">2</span>),<span class="number">0</span>)-M*<span class="built_in">min</span>(x(<span class="number">1</span>)^<span class="number">2</span>-x(<span class="number">2</span>),<span class="number">0</span>)+M*<span class="built_in">abs</span>(-x(<span class="number">1</span>)-x(<span class="number">2</span>)^<span class="number">2</span>+<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>求增广目标函数的极小值，在matlab输入</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[x,y]=fminsearch(<span class="string">&#x27;test1&#x27;</span>,<span class="built_in">rand</span>(<span class="number">2</span>,<span class="number">1</span>))</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="大例题：飞行管理问题"><a href="#大例题：飞行管理问题" class="headerlink" title="大例题：飞行管理问题"></a>大例题：飞行管理问题</h1><img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220903/image.1x62m1rjbm00.webp" alt="image" style="zoom:67%;" />
+
+<p>​	<strong>请对这个避免碰撞的飞行管理问题建立数学模型，列出计算步骤，对以下数据进行计算，要求飞机飞行方向角调整的幅度尽量小</strong></p>
+<img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220903/image.7xuv5hhbqik.webp" alt="image" style="zoom:67%;" />
+
+<img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220903/image.1lf63w5johmo.webp" alt="image" style="zoom:67%;" />
+
+<h2 id="模型一"><a href="#模型一" class="headerlink" title="模型一"></a>模型一</h2><p>​	考察两架飞机i和j飞行时，可以将其中一架飞机视作不动，另一架飞机以相对速度飞行</p>
+<img src="https://cdn.staticaly.com/gh/KevinJinNL/img@main/20220903/image.4gqnb2gnt4a0.webp" alt="image" style="zoom:67%;" />
+
+<h1 id="符号解和数值解的区别"><a href="#符号解和数值解的区别" class="headerlink" title="符号解和数值解的区别"></a>符号解和数值解的区别</h1><p>符号解（准确的叫法是解析解）是准确解，如果方程都能有解析解当然愿意用它。但事实上很多常微分方程是没有解析解的，因此只能能过数值的方法去解决。</p>
+<h1 id="多目标规划"><a href="#多目标规划" class="headerlink" title="多目标规划"></a>多目标规划</h1><p>如何判定题目要使用多目标规划，只需抓住一句关键语句：<strong>既要XXX，又要XXX</strong></p>
+<p><strong>线性规划都是一个目标函数，例如工业生产两种产品，追求最大化利润</strong></p>
+<p>但是现在有多个目标需要满足时，问题就成为了多目标规划问题</p>
+<p><strong>在题干中，有一些词条可以注意：</strong></p>
+<ul>
+<li><strong>不超过</strong>:尽量“&lt;&#x3D;”</li>
+<li><strong>充分利用</strong>:尽量“&#x3D;”</li>
+<li><strong>不少于</strong>:尽量“&gt;&#x3D;”</li>
+</ul>
+<p>在多目标规划中同时有多个目标需要满足时，需要衡量每个目标的<strong>完成情况</strong>，并在主观上区分三个目标的重要性，使得整体的完成情况尽量好</p>
+<p><strong>如何衡量每个目标的完成情况？</strong></p>
+<p>​	正负偏差变量</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.3ofu936bsm00.webp?raw=true" alt="image"></p>
+<p>正偏差变量超了也不怕，但是负偏差变量是越小越好</p>
+<p><strong>绝对约束</strong></p>
+<p>​	是模型中自带的约束条件，必须满足，否则是不可行解</p>
+<p><strong>目标约束</strong></p>
+<p>​	模型中对不等式有段追求的值允许有偏差</p>
+<p>那么，在问题解决过程中，我们需要在主观上区分多个目标的重要性，使得整体的完成情况尽量好，为此我们引入了优先因子的概念</p>
+<p><strong>优先因子</strong></p>
+<p>可以进行查阅相关论文，也可自己主观判断</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.70kdnpro8tc0.webp?raw=true" alt="image"></p>
+<p>在对多目标规划问题进行了具体的模型建立之后，我们就需要将其具象化到代码之中，MATLAB中的求解方法即为使用fgoalattain函数</p>
+<p>首先我们先总结出问题的具体约束</p>
+<p><img src="https://git.poker/KevinJinNL/img/blob/main/xxx/image.62b7s81k85g0.webp?raw=true" alt="image"></p>
+<h1 id="图与网络模型及方法"><a href="#图与网络模型及方法" class="headerlink" title="图与网络模型及方法"></a>图与网络模型及方法</h1><p>​	<strong>直观的讲，对于平面上的n个点，把其中的一些点对用曲线或直线连接起来，不考虑点的位置与连线曲直长短，这样形成的一个关系结构就是一个图。记作G&#x3D;(V,E),V是以上述点为元素的顶点集，E是以上述连线为元素的边集</strong><br>​	对于图以及相邻顶点之间的关系，有两种表示方法</p>
+<ol>
+<li>邻接矩阵表示法：当相邻顶点之间赋权时，记Wij&#x3D;权值或者0，无赋权时记作1或0</li>
+<li>稀疏矩阵表示法：<strong>稀疏矩阵的意思是零元素很多非零元素很少的矩阵</strong></li>
+</ol>
+<h2 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h2><p>​	假设给出一个矩阵，矩阵i行j列的元素分别代表i城市到j城市的距离</p>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220906175151434.png" alt="image-20220906175151434" style="zoom:67%;" />
+
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%求第一个城市到其他城市的matlab程序如下</span></span><br><span class="line">clc,clear</span><br><span class="line">a=<span class="built_in">zeros</span>(<span class="number">6</span>);<span class="comment">%邻接矩阵初始化,创建一个6*6的所有元素为0的矩阵</span></span><br><span class="line">a(<span class="number">1</span>,<span class="number">2</span>)=<span class="number">50</span>;a(<span class="number">1</span>,<span class="number">4</span>)=<span class="number">40</span>;a(<span class="number">1</span>,<span class="number">5</span>)=<span class="number">25</span>;a(<span class="number">1</span>,<span class="number">6</span>)=<span class="number">10</span>;</span><br><span class="line">a(<span class="number">2</span>,<span class="number">3</span>)=<span class="number">15</span>;a(<span class="number">2</span>,<span class="number">4</span>)=<span class="number">20</span>;a(<span class="number">2</span>,<span class="number">6</span>)=<span class="number">25</span>;</span><br><span class="line">a(<span class="number">3</span>,<span class="number">4</span>)=<span class="number">10</span>;a(<span class="number">3</span>,<span class="number">5</span>)=<span class="number">20</span>;</span><br><span class="line">a(<span class="number">4</span>,<span class="number">5</span>)=<span class="number">10</span>;a(<span class="number">4</span>,<span class="number">6</span>)=<span class="number">25</span>;</span><br><span class="line">a(<span class="number">5</span>,<span class="number">6</span>)=<span class="number">55</span>;</span><br><span class="line">a=a+a&#x27;;<span class="comment">%这一句的意思是让矩阵变为对称矩阵</span></span><br><span class="line">a(a==<span class="number">0</span>)=<span class="built_in">inf</span>;<span class="comment">%矩阵元素等于0说明两个城市没有连通的道路</span></span><br><span class="line">pb(<span class="number">1</span>:<span class="built_in">length</span>(a))=<span class="number">0</span>;pb(<span class="number">1</span>)=<span class="number">1</span>;index1=<span class="number">1</span>;index2=<span class="built_in">ones</span>(<span class="number">1</span>,<span class="built_in">length</span>(a));<span class="comment">%此处length(a)值为6 </span></span><br><span class="line">d(<span class="number">1</span>:<span class="built_in">length</span>(a))=<span class="built_in">inf</span>;d(<span class="number">1</span>)=<span class="number">0</span>;</span><br><span class="line">temp=<span class="number">1</span>;<span class="comment">%最新的P标号的顶点</span></span><br><span class="line"><span class="keyword">while</span> sum(pb)&lt;<span class="built_in">length</span>(a)<span class="comment">%sum(pb)的意思是将pb矢量中的所有元素相加</span></span><br><span class="line">	tb=<span class="built_in">find</span>(pb==<span class="number">0</span>);<span class="comment">%find函数返回每一个非0元素的线性矢量，找出pb中等于零的值下标的线性向量</span></span><br><span class="line">	d(tb)=<span class="built_in">min</span>(d(tb),d(temp)+a(temp,tb));</span><br><span class="line">	tmpb=<span class="built_in">find</span>(d(tb)==<span class="built_in">min</span>(d(tb)));</span><br><span class="line">	temp=tb(tmpb(<span class="number">1</span>));<span class="comment">%可能有多个点同时达到最小值，只取其中的一个</span></span><br><span class="line">	pb(temp)=<span class="number">1</span>;</span><br><span class="line">	index1=[index1,temp];</span><br><span class="line">	temp2=<span class="built_in">find</span>(d(index1)==d(temp)-a(temp,index1));</span><br><span class="line">	index2(temp)=index1(temp2(<span class="number">1</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">d,index1,index2<span class="comment">%d为最终求解矩阵</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>关于对于其中元素有疑问的，以下是第一遍循环中，各个元素的具体值</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; tb=<span class="built_in">find</span>(pb==<span class="number">0</span>)</span><br><span class="line">tb =</span><br><span class="line">     <span class="number">2</span>     <span class="number">3</span>     <span class="number">4</span>     <span class="number">5</span>     <span class="number">6</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d(tb)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">   Inf   Inf   Inf   Inf   Inf</span><br><span class="line"></span><br><span class="line">&gt;&gt; d(temp)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">0</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; a(temp,tb)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">50</span>   Inf    <span class="number">40</span>    <span class="number">25</span>    <span class="number">10</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d(tb)=<span class="built_in">min</span>(d(tb),d(temp)+a(temp,tb))</span><br><span class="line">d =</span><br><span class="line">     <span class="number">0</span>    <span class="number">50</span>   Inf    <span class="number">40</span>    <span class="number">25</span>    <span class="number">10</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; tmpb=<span class="built_in">find</span>(d(tb)==<span class="built_in">min</span>(d(tb)))</span><br><span class="line">tmpb =</span><br><span class="line">     <span class="number">5</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; temp=tb(tmpb(<span class="number">1</span>))</span><br><span class="line">temp =</span><br><span class="line">     <span class="number">6</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; pb(temp)=<span class="number">1</span></span><br><span class="line">pb =</span><br><span class="line">     <span class="number">1</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">0</span>     <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; index1=[index1,temp]</span><br><span class="line">index1 =</span><br><span class="line">     <span class="number">1</span>     <span class="number">6</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d(index1)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">0</span>    <span class="number">10</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; d(temp)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">10</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; a(temp,index1)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">    <span class="number">10</span>   Inf</span><br><span class="line"></span><br><span class="line">&gt;&gt; index2(temp)</span><br><span class="line"><span class="built_in">ans</span> =</span><br><span class="line">     <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; temp2=<span class="built_in">find</span>(d(index1)==d(temp)-a(temp,index1))</span><br><span class="line">temp2 =</span><br><span class="line">     <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; index2(temp)=index1(temp2(<span class="number">1</span>))</span><br><span class="line">index2 =</span><br><span class="line">     <span class="number">1</span>     <span class="number">1</span>     <span class="number">1</span>     <span class="number">1</span>     <span class="number">1</span>    </span><br></pre></td></tr></table></figure>
+
+<h2 id="Prim算法求最小生成树"><a href="#Prim算法求最小生成树" class="headerlink" title="Prim算法求最小生成树"></a>Prim算法求最小生成树</h2><p>Matlab程序</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">clc;clear;</span><br><span class="line">a=<span class="built_in">zeros</span>(<span class="number">7</span>);</span><br><span class="line">a(<span class="number">1</span>,<span class="number">2</span>)=<span class="number">50</span>;a(<span class="number">1</span>,<span class="number">3</span>)=<span class="number">60</span>;</span><br><span class="line">a(<span class="number">2</span>,<span class="number">4</span>)=<span class="number">65</span>;a(<span class="number">2</span>,<span class="number">5</span>)=<span class="number">40</span>;</span><br><span class="line">a(<span class="number">3</span>,<span class="number">4</span>)=<span class="number">52</span>;a(<span class="number">3</span>,<span class="number">7</span>)=<span class="number">45</span>;</span><br><span class="line">a(<span class="number">4</span>,<span class="number">5</span>)=<span class="number">50</span>;a(<span class="number">4</span>,<span class="number">6</span>)=<span class="number">30</span>;a(<span class="number">4</span>,<span class="number">7</span>)=<span class="number">42</span>;</span><br><span class="line">a(<span class="number">5</span>,<span class="number">6</span>)=<span class="number">70</span>;</span><br><span class="line">a=a+a&#x27;;a(a==<span class="number">0</span>)=<span class="built_in">inf</span>;</span><br><span class="line">result=[];p=<span class="number">1</span>;tb=<span class="number">2</span>:<span class="built_in">length</span>(a);</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">size</span>(result,<span class="number">2</span>)~=<span class="built_in">length</span>(a)<span class="number">-1</span></span><br><span class="line">	temp=a(p,tb);temp=temp(:);</span><br><span class="line">	d=<span class="built_in">min</span>(temp);</span><br><span class="line">	[jb,kb]=<span class="built_in">find</span>(a(p,tb)==d,<span class="number">1</span>);<span class="comment">%找第1个最小值</span></span><br><span class="line">	<span class="built_in">j</span>=p(jb);k=tb(kb);</span><br><span class="line">	result=[result,[<span class="built_in">j</span>;k;d]];p=[p,k];tb(<span class="built_in">find</span>(tb==k))=[];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">result</span><br></pre></td></tr></table></figure>
+
+<h2 id="Kruskal算法求最小生成树"><a href="#Kruskal算法求最小生成树" class="headerlink" title="Kruskal算法求最小生成树"></a>Kruskal算法求最小生成树</h2><p>Kruskal算法的核心思想，既是在将所有的边以及所有的点分为两个集合，每一次选取一条权值最小的边，直到没有未连接入路径中的点为止</p>
+<p><strong>Matlab代码样例</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">clc;clear;</span><br><span class="line">a(<span class="number">1</span>,[<span class="number">2</span>,<span class="number">3</span>])=[<span class="number">50</span>,<span class="number">60</span>];a(<span class="number">2</span>,[<span class="number">4</span>,<span class="number">5</span>])=[<span class="number">65</span>,<span class="number">40</span>];</span><br><span class="line">a(<span class="number">3</span>,[<span class="number">4</span>,<span class="number">7</span>])=[<span class="number">52</span>,<span class="number">45</span>];a(<span class="number">4</span>,[<span class="number">5</span>,<span class="number">6</span>])=[<span class="number">50</span>,<span class="number">30</span>];</span><br><span class="line">a(<span class="number">4</span>,<span class="number">7</span>)=<span class="number">42</span>;a(<span class="number">5</span>,<span class="number">6</span>)=<span class="number">70</span>;</span><br><span class="line">[<span class="built_in">i</span>,<span class="built_in">j</span>,b]=<span class="built_in">find</span>(a);</span><br><span class="line">data=[i&#x27;,j&#x27;,b&#x27;];index=data(<span class="number">1</span>:<span class="number">2</span>,:);</span><br><span class="line">loop=<span class="built_in">length</span>(a)<span class="number">-1</span>;</span><br><span class="line">result=[];</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">length</span>(result)&lt;loop</span><br><span class="line">	temp=<span class="built_in">min</span>(data(<span class="number">3</span>,:));</span><br><span class="line">	flag=<span class="built_in">find</span>(data(<span class="number">3</span>,:)==temp);</span><br><span class="line">	flag=flag(<span class="number">1</span>);</span><br><span class="line">	v1=index(<span class="number">1</span>,flag);v2=index(<span class="number">2</span>,flag);</span><br><span class="line">	<span class="keyword">if</span> v1~=v2</span><br><span class="line">		result=[result,data(:,flag)];</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line">	index(<span class="built_in">find</span>(index==v2))=v1;</span><br><span class="line">	data(:,flag)=[];</span><br><span class="line">	index(:,flag)=[];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">result</span><br></pre></td></tr></table></figure>
+
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220907155950667.png" alt="image-20220907155950667" style="zoom:67%;" />
+
+
+
+<h1 id="网络最大流问题"><a href="#网络最大流问题" class="headerlink" title="网络最大流问题"></a>网络最大流问题</h1><p>​	网络既是一个有向图中，对于其中的每一条弧（也可叫做边），他们都有各自的一个承载量（非权值），记作C(vi,vj)&gt;&#x3D;0,称作弧的容量，同时对于每一条边，也有f(vi,vj)，称为{vi,vj}上的流量</p>
+<p><strong>P.s 弧是有方向的</strong></p>
+<h2 id="可行流"><a href="#可行流" class="headerlink" title="可行流"></a>可行流</h2><p>​	当一个流满足以下条件时，可称之为可行流</p>
+<ol>
+<li>对每一弧，都有0&lt;&#x3D;f(vi,vj)&lt;&#x3D;c(vi,vj)</li>
+<li>同时中间的流也满足上列条件</li>
+</ol>
+<p><strong>可行流总是存在的</strong></p>
+<p>最大流问题可写为如下线性规划模型</p>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20220907160908275.png" alt="image-20220907160908275" style="zoom:67%;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2022/07/05/DataStructure/" class="pre-post btn btn-default" title=''>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            </span>
+    </a>
+    
+    
+    <a href="/2022/06/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="next-post btn btn-default" title='数学建模论文书写'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            数学建模论文书写</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8B%9F%E5%90%88"><span class="toc-text">数据拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88%E4%B8%8E%E5%87%BD%E6%95%B0%E9%80%BC%E8%BF%91"><span class="toc-text">曲线拟合与函数逼近</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%A0%B7%E6%9D%A1%E6%8F%92%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-text">三次样条插值函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B"><span class="toc-text">评价类模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-text">层次分析法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E6%B3%95%E6%B1%82%E6%9D%83%E9%87%8D"><span class="toc-text">特征值法求权重</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">线性规划模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linprog%E5%87%BD%E6%95%B0"><span class="toc-text">Linprog函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%BD%AC%E5%8C%96%E4%B8%BA%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">可转化为线性规划的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="toc-text">整数规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-1%E5%9E%8B%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="toc-text">0-1型整数规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%9B%BA%E5%AE%9A%E8%B4%B9%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98-Fixed-Cost-Problem"><span class="toc-text">关于固定费用的问题(Fixed Cost Problem)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%B3%95-%E9%9A%8F%E6%9C%BA%E5%8F%96%E6%A0%B7%E6%B3%95"><span class="toc-text">蒙特卡洛法(随机取样法)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B1%82%E8%A7%A3"><span class="toc-text">整数线性规划的计算机求解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92"><span class="toc-text">非线性规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9E%81%E5%80%BC%E9%97%AE%E9%A2%98%E7%9A%84%E7%AC%A6%E5%8F%B7%E8%A7%A3"><span class="toc-text">无约束极值问题的符号解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%A6%E6%9D%9F%E6%9E%81%E5%80%BC%E9%97%AE%E9%A2%98%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-text">无约束极值问题的数值解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E5%87%BD%E6%95%B0%E7%9A%84%E9%9B%B6%E7%82%B9%E5%92%8C%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E8%A7%A3"><span class="toc-text">求函数的零点和方程组的解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F%E6%9E%81%E5%80%BC%E9%97%AE%E9%A2%98"><span class="toc-text">约束极值问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92"><span class="toc-text">二次规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%9A%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-text">罚函数法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%A7%E4%BE%8B%E9%A2%98%EF%BC%9A%E9%A3%9E%E8%A1%8C%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98"><span class="toc-text">大例题：飞行管理问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%B8%80"><span class="toc-text">模型一</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E8%A7%A3%E5%92%8C%E6%95%B0%E5%80%BC%E8%A7%A3%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">符号解和数值解的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%9B%AE%E6%A0%87%E8%A7%84%E5%88%92"><span class="toc-text">多目标规划</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%8F%8A%E6%96%B9%E6%B3%95"><span class="toc-text">图与网络模型及方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98"><span class="toc-text">最短路径问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prim%E7%AE%97%E6%B3%95%E6%B1%82%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">Prim算法求最小生成树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kruskal%E7%AE%97%E6%B3%95%E6%B1%82%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">Kruskal算法求最小生成树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%9C%80%E5%A4%A7%E6%B5%81%E9%97%AE%E9%A2%98"><span class="toc-text">网络最大流问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E8%A1%8C%E6%B5%81"><span class="toc-text">可行流</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

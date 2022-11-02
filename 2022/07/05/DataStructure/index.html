@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Kevin&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://example.com">
+    <!--SEO-->
+
+<meta name="keywords" content="" />
+
+
+<meta name="description" content="《数据结构算法与应用》C++回顾首先我们编写一个很简单的函数
+1234int abc(int a,int b,int c)&#123;	return a+b*c;&#125;
+
+其中，a,b,c..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    Kevin&#39;s Blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="Kevin&#39;s Blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 6.1.0"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://cdn.jsdelivr.net/gh/KevinJinNL/img@main/image.4pvt8z0ci5y0.webp)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='Kevin'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://example.com">
+                        Kevin&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/CS基础/"><i class="fa "></i>
+                                CS基础</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/语言学习/"><i class="fa "></i>
+                                语言学习</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/杂谈/"><i class="fa "></i>
+                                杂谈</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="">
+            
+            NO Title!
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/07/05</span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="《数据结构算法与应用》"><a href="#《数据结构算法与应用》" class="headerlink" title="《数据结构算法与应用》"></a>《数据结构算法与应用》</h1><h1 id="C-回顾"><a href="#C-回顾" class="headerlink" title="C++回顾"></a>C++回顾</h1><p>首先我们编写一个很简单的函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">abc</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a+b*c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，a,b,c都是函数abc的形参，即形式参数</p>
+<p>当我们调用该函数时</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z=<span class="built_in">abc</span>(<span class="number">2</span>,x,y);</span><br></pre></td></tr></table></figure>
+
+<p>其中的2,x,y便是实参，即实际上进行运算的参数</p>
+<p>所以形参与实参的区别在于，形参只是提供了一个类似于模板的作用，真正在程序中进行运算的是实参</p>
+<p><strong>其原理是，在调用函数时，将实际参数复制给形式参数，复制过程由形参类型的复制构造函数完成</strong></p>
+<p>为此，当函数运行结束时，形参类型的析构函数会释放形式参数，为此形式参数的值不会被复制到相应的实参中，下面代码的结果可以证明这一点</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap1</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp=a;</span><br><span class="line">    a=b;</span><br><span class="line">    b=temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">swap2</span><span class="params">(<span class="type">int</span> &amp;a,<span class="type">int</span> &amp;b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> temp=a;</span><br><span class="line">    a=b;</span><br><span class="line">    b=temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> number[<span class="number">2</span>]=&#123;<span class="number">3</span>,<span class="number">5</span>&#125;;</span><br><span class="line">    <span class="built_in">swap1</span>(number[<span class="number">0</span>],number[<span class="number">1</span>]);</span><br><span class="line">    cout&lt;&lt;number[<span class="number">0</span>]&lt;&lt;number[<span class="number">1</span>]&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">swap2</span>(number[<span class="number">0</span>],number[<span class="number">1</span>]);</span><br><span class="line">    cout&lt;&lt;number[<span class="number">0</span>]&lt;&lt;number[<span class="number">1</span>]&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 5//swap1的结果</span><br><span class="line">5 3//swap2的结果</span><br></pre></td></tr></table></figure>
+
+<p>swap2会改变number数组中两个值的位置，而swap1不会</p>
+<p>因为对于swap2，我们使用了引用参数类型，所以会对实参的数据进行修改，换句话说，函数调用后，实际上的数据也会发生变化</p>
+<h2 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h2><p>操作符new</p>
+<p>​	new操作符作用，用来进行动态存储分配或运行时存储分配，它的值是一个指针，指向分配空间</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* y;</span><br><span class="line">y=<span class="keyword">new</span> <span class="type">int</span>;</span><br></pre></td></tr></table></figure>
+
+<p>操作符new分配了一块能够存储一个整数的空间，并将该空间的指针赋给y</p>
+<h2 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h2><p>当二维数组作为函数形参的时候，需要对其第二维大小进行指定</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a[][])</span></span>&#123;&#125;<span class="comment">//不指定第二维作为形式参数时，不可定义</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a[][<span class="number">10</span>])</span></span>&#123;&#125;<span class="comment">//指定第二维作为形式参数后才可对该函数进行定义</span></span><br></pre></td></tr></table></figure>
+
+<p>如果在定义一个二维数组时，只知道其中一维的大小，可采用如下语法进行分配</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">char</span>(*c)[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">try</span>&#123;c=<span class="keyword">new</span> <span class="type">char</span>[n][<span class="number">5</span>];&#125;</span><br><span class="line"><span class="built_in">catch</span>(bad_alloc)</span><br><span class="line">&#123;</span><br><span class="line">    cerr&lt;&lt;<span class="string">&quot;Out of Memory&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>为一个二维数组分配存储空间</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">make2dArray</span><span class="params">(T ** &amp;x,<span class="type">int</span> numberOfRows,<span class="type">int</span> numberOfColumns)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		<span class="comment">//创建行指针</span></span><br><span class="line">		x=<span class="keyword">new</span> T*[numberOfRows];</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//为每一行分配空间</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;numberOfRows;i++)</span><br><span class="line">			x[i]=<span class="keyword">new</span> T[numberOfColumns];</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">catch</span>(bad_alloc)&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2022/07/06/%E8%80%83%E7%A0%94%E7%AE%97%E6%B3%95/" class="pre-post btn btn-default" title='考研算法'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            考研算法</span>
+    </a>
+    
+    
+    <a href="/2022/06/20/%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B/" class="next-post btn btn-default" title='数学模型'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            数学模型</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B"><span class="toc-text">《数据结构算法与应用》</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-%E5%9B%9E%E9%A1%BE"><span class="toc-text">C++回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D"><span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">二维数组</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2017
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>

@@ -22,13 +22,8 @@
 <meta name="keywords" content="" />
 
 
-<meta name="description" content="杂谈树的遍历：
-
-前序遍历：根结点-&gt;左节点-&gt;右节点
-中序遍历：左结点-&gt;根结点-&gt;右节点
-后序遍历：左结点-&gt;右节点-&gt;根节点
-
-" />
+<meta name="description" content="第一章​	成绩排序2一题中，使用到了运算符重载以及头文件“algorithm”中的sort函数，相关代码段如下
+123456bool operator&lt;(const Person&amp;..." />
 
 
 <meta name="robots" content="all" />
@@ -39,7 +34,7 @@
 
 <title>
     
-    ReAlgorithm |
+    考研算法 |
     
     Kevin&#39;s Blog
 </title>
@@ -141,9 +136,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="ReAlgorithm">
+        <h1 id="考研算法">
             
-            ReAlgorithm
+            考研算法
             
         </h1>
         <div class="post-meta">
@@ -166,7 +161,7 @@
     <span class="fa-wrap">
         <i class="fa fa-clock-o"></i>
         <span class="date-meta">
-            2022/05/19</span>
+            2022/07/06</span>
     </span>
     
     
@@ -176,12 +171,30 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="杂谈"><a href="#杂谈" class="headerlink" title="杂谈"></a>杂谈</h1><p>树的遍历：</p>
+        <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>​	<strong>成绩排序2</strong>一题中，使用到了运算符重载以及头文件“algorithm”中的sort函数，相关代码段如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="keyword">operator</span>&lt;(<span class="type">const</span> Person&amp; t) <span class="type">const</span>&#123;<span class="comment">//运算符重载</span></span><br><span class="line">        <span class="keyword">if</span>(score!=t.score) <span class="keyword">return</span> score&lt;t.score;<span class="comment">//如果分数不相同，返回结果</span></span><br><span class="line">        <span class="keyword">return</span> num&lt; t.num;<span class="comment">//如果分数相同，返回学号更小的一个</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">sort</span>(q,q+n);<span class="comment">//对数组进行排序</span></span><br></pre></td></tr></table></figure>
+
+<p>p.s const关键字的作用为</p>
+<p>​	指定一个语义约束，如果函数或其他调用中某个值确实一直不变，使用const</p>
+<h2 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h2><p>重载运算符，是为了在面向对象中更方便的对各类成员变量进行</p>
 <ol>
-<li>前序遍历：根结点-&gt;左节点-&gt;右节点</li>
-<li>中序遍历：左结点-&gt;根结点-&gt;右节点</li>
-<li>后序遍历：左结点-&gt;右节点-&gt;根节点</li>
+<li><p>一元运算，如基本的-取负值</p>
+</li>
+<li><p>二元运算，如+，-，*，&#x2F;</p>
+</li>
+<li><p>关系运算符重载，如&lt;,&gt;</p>
+</li>
+<li><p>输入输出运算符重载，如&lt;&lt;,&gt;&gt;</p>
+</li>
 </ol>
+   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span>&lt;&lt;( ostream &amp;output, </span><br><span class="line">                                       <span class="type">const</span> Distance &amp;D )</span><br><span class="line">      &#123; </span><br><span class="line">         output &lt;&lt; <span class="string">&quot;F : &quot;</span> &lt;&lt; D.feet &lt;&lt; <span class="string">&quot; I : &quot;</span> &lt;&lt; D.inches;</span><br><span class="line">         <span class="keyword">return</span> output;            </span><br><span class="line">      &#125;<span class="comment">//输出运算符重载</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">friend</span> istream &amp;<span class="keyword">operator</span>&gt;&gt;( istream  &amp;input, Distance &amp;D )<span class="comment">//输入运算符重载</span></span><br><span class="line">      &#123; </span><br><span class="line">         input &gt;&gt; D.feet &gt;&gt; D.inches;</span><br><span class="line">         <span class="keyword">return</span> input;            </span><br><span class="line">      &#125;<span class="comment">//友元函数有权限访问类中(private)以及(protected)的变量</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>对于数组，我们甚至可以进行下标运算符[]重载</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>&amp; <span class="keyword">operator</span>[](<span class="type">int</span> i)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">if</span>( i &gt;= SIZE )</span><br><span class="line">          &#123;</span><br><span class="line">              cout &lt;&lt; <span class="string">&quot;索引超过最大值&quot;</span> &lt;&lt;endl; </span><br><span class="line">              <span class="comment">// 返回第一个元素</span></span><br><span class="line">              <span class="keyword">return</span> arr[<span class="number">0</span>];</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> arr[i];</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="sort函数"><a href="#sort函数" class="headerlink" title="sort函数"></a>sort函数</h2><p>​	sort()函数是基于快速排序实现的，默认为升序排序，且是不稳定的排序函数</p>
 
     </div>
     
@@ -200,17 +213,17 @@
 </article>
 <div class="article-nav prev-next-wrap clearfix">
     
-    <a href="/2022/06/07/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" class="pre-post btn btn-default" title='数学建模论文书写'>
+    <a href="/2022/10/11/%E5%AD%A6%E6%9C%9F%E7%9B%AE%E6%A0%87/" class="pre-post btn btn-default" title=''>
         <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
         <span class="hidden-xs">
-            数学建模论文书写</span>
+            </span>
     </a>
     
     
-    <a href="/2022/05/07/MATLAB/" class="next-post btn btn-default" title='MATLAB'>
+    <a href="/2022/07/05/DataStructure/" class="next-post btn btn-default" title=''>
         <span class="hidden-lg">下一篇</span>
         <span class="hidden-xs">
-            MATLAB</span><i class="fa fa-angle-right fa-fw"></i>
+            </span><i class="fa fa-angle-right fa-fw"></i>
     </a>
     
 </div>
@@ -244,7 +257,7 @@
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9D%82%E8%B0%88"><span class="toc-text">杂谈</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-text">运算符重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort%E5%87%BD%E6%95%B0"><span class="toc-text">sort函数</span></a></li></ol></li></ol>
         
     </div>
 </aside>
